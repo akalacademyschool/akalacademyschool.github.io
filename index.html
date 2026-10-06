@@ -12,6 +12,8 @@
 </head>
 <body>
 
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
   <header class="site-header" id="site-header">
     <div class="container nav-inner">
       <a href="#hero" class="brand" aria-label="Back to top">SKC<span class="brand-dot">.</span></a>
@@ -21,6 +23,7 @@
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
         <a href="#publications">Publications</a>
+        <a href="#certificates">Certificates</a>
         <a href="#education">Education</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -70,6 +73,28 @@
       </div>
     </section>
 
+    <!-- Stats -->
+    <div class="stats-strip">
+      <div class="container stats-grid">
+        <div class="stat reveal">
+          <span class="stat-number" data-target="5" data-decimals="0">0</span>
+          <span class="stat-label">Internships &amp; Roles</span>
+        </div>
+        <div class="stat reveal">
+          <span class="stat-number" data-target="12" data-decimals="0">0</span>
+          <span class="stat-label">Certificates Earned</span>
+        </div>
+        <div class="stat reveal">
+          <span class="stat-number" data-target="3" data-decimals="0">0</span>
+          <span class="stat-label">Publications</span>
+        </div>
+        <div class="stat reveal">
+          <span class="stat-number" data-target="7.8" data-decimals="1">0</span>
+          <span class="stat-label">CGPA &mdash; MA Education</span>
+        </div>
+      </div>
+    </div>
+
     <!-- Skills -->
     <section class="section section-alt" id="skills">
       <div class="container">
@@ -102,6 +127,14 @@
         </div>
       </div>
     </section>
+
+    <!-- Skills marquee -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <div class="marquee-group"><span class="marquee-item">Research Data Analysis</span><span class="marquee-dot" aria-hidden="true">&bull;</span><span class="marquee-item">Instructional Design</span><span class="marquee-dot" aria-hidden="true">&bull;</span><span class="marquee-item">ICT and AI Tools</span><span class="marquee-dot" aria-hidden="true">&bull;</span><span class="marquee-item">SPSS & JAMOVI</span><span class="marquee-dot" aria-hidden="true">&bull;</span><span class="marquee-item">Adobe Express</span><span class="marquee-dot" aria-hidden="true">&bull;</span><span class="marquee-item">Google Workspace</span><span class="marquee-dot" aria-hidden="true">&bull;</span><span class="marquee-item">Web Development</span><span class="marquee-dot" aria-hidden="true">&bull;</span><span class="marquee-item">Digital Productivity</span><span class="marquee-dot" aria-hidden="true">&bull;</span><span class="marquee-item">Communication Skills</span><span class="marquee-dot" aria-hidden="true">&bull;</span><span class="marquee-item">Problem-Solving</span><span class="marquee-dot" aria-hidden="true">&bull;</span><span class="marquee-item">Project Management</span><span class="marquee-dot" aria-hidden="true">&bull;</span><span class="marquee-item">Leadership</span><span class="marquee-dot" aria-hidden="true">&bull;</span><span class="marquee-item">Adaptability</span><span class="marquee-dot" aria-hidden="true">&bull;</span><span class="marquee-item">Team Player</span><span class="marquee-dot" aria-hidden="true">&bull;</span></div>
+        <div class="marquee-group"><span class="marquee-item">Research Data Analysis</span><span class="marquee-dot" aria-hidden="true">&bull;</span><span class="marquee-item">Instructional Design</span><span class="marquee-dot" aria-hidden="true">&bull;</span><span class="marquee-item">ICT and AI Tools</span><span class="marquee-dot" aria-hidden="true">&bull;</span><span class="marquee-item">SPSS & JAMOVI</span><span class="marquee-dot" aria-hidden="true">&bull;</span><span class="marquee-item">Adobe Express</span><span class="marquee-dot" aria-hidden="true">&bull;</span><span class="marquee-item">Google Workspace</span><span class="marquee-dot" aria-hidden="true">&bull;</span><span class="marquee-item">Web Development</span><span class="marquee-dot" aria-hidden="true">&bull;</span><span class="marquee-item">Digital Productivity</span><span class="marquee-dot" aria-hidden="true">&bull;</span><span class="marquee-item">Communication Skills</span><span class="marquee-dot" aria-hidden="true">&bull;</span><span class="marquee-item">Problem-Solving</span><span class="marquee-dot" aria-hidden="true">&bull;</span><span class="marquee-item">Project Management</span><span class="marquee-dot" aria-hidden="true">&bull;</span><span class="marquee-item">Leadership</span><span class="marquee-dot" aria-hidden="true">&bull;</span><span class="marquee-item">Adaptability</span><span class="marquee-dot" aria-hidden="true">&bull;</span><span class="marquee-item">Team Player</span><span class="marquee-dot" aria-hidden="true">&bull;</span></div>
+      </div>
+    </div>
 
     <!-- Experience -->
     <section class="section" id="experience">
@@ -186,7 +219,7 @@
       <div class="container">
         <h2 class="section-title reveal">Projects</h2>
         <div class="projects-grid">
-          <article class="project-card reveal">
+          <article class="project-card reveal tilt">
             <span class="card-date">Sep 2025</span>
             <h3>Early Warning System for Natural Disasters</h3>
             <ul>
@@ -194,7 +227,7 @@
               <li>Designed flowcharts and presentations with structured problem identification, proposed solution, and implementation framework</li>
             </ul>
           </article>
-          <article class="project-card reveal">
+          <article class="project-card reveal tilt">
             <span class="card-date">Sep 2024 &ndash; Oct 2024</span>
             <h3>Social Media Addiction &amp; Academic Achievement Study</h3>
             <ul>
@@ -238,15 +271,57 @@
     <section class="section section-alt" id="certificates">
       <div class="container">
         <h2 class="section-title reveal">Certificates</h2>
-        <div class="cert-grid">
-          <div class="cert-card reveal"><h3>Computer Operator and Programming Assistant (COPA)</h3><p>NIPS Institute &middot; Aug 2024</p></div>
-          <div class="cert-card reveal"><h3>Data Analysis</h3><p>IIRA &middot; Sep 2025</p></div>
-          <div class="cert-card reveal"><h3>Certified Instructional Design Specialist</h3><p>Henry Harvad &middot; Apr 2025</p></div>
-          <div class="cert-card reveal"><h3>Effective Leadership</h3><p>HP &middot; Mar 2025</p></div>
-          <div class="cert-card reveal"><h3>Soft Skills</h3><p>TCS &middot; Dec 2024</p></div>
-          <div class="cert-card reveal"><h3>Digital Productivity</h3><p>NIIT Foundation &middot; Aug 2024</p></div>
-          <div class="cert-card reveal"><h3>Content Writer and Manager (WordPress)</h3><p>Simplilearn &middot; Dec 2024</p></div>
+                <div class="cert-gallery">
+          <figure class="cert-item reveal tilt" tabindex="0" role="button" aria-label="View certificate: JAAFR Research Paper Confirmation">
+            <span class="cert-thumb"><img data-cert="jaafr-confirmation.jpg" alt="JAAFR Research Paper Confirmation" loading="lazy" /></span>
+            <figcaption>JAAFR Research Paper Confirmation</figcaption>
+          </figure>
+          <figure class="cert-item reveal tilt" tabindex="0" role="button" aria-label="View certificate: HR Internship Certificate">
+            <span class="cert-thumb"><img data-cert="hr-internship.jpg" alt="HR Internship Certificate" loading="lazy" /></span>
+            <figcaption>HR Internship Certificate</figcaption>
+          </figure>
+          <figure class="cert-item reveal tilt" tabindex="0" role="button" aria-label="View certificate: Campus Ambassador, Wayspire">
+            <span class="cert-thumb"><img data-cert="campus-ambassador.jpg" alt="Campus Ambassador, Wayspire" loading="lazy" /></span>
+            <figcaption>Campus Ambassador, Wayspire</figcaption>
+          </figure>
+          <figure class="cert-item reveal tilt" tabindex="0" role="button" aria-label="View certificate: Data Analysis, IIRA">
+            <span class="cert-thumb"><img data-cert="iira-data-analysis.jpg" alt="Data Analysis, IIRA" loading="lazy" /></span>
+            <figcaption>Data Analysis, IIRA</figcaption>
+          </figure>
+          <figure class="cert-item reveal tilt" tabindex="0" role="button" aria-label="View certificate: Soft Skills, TCS">
+            <span class="cert-thumb"><img data-cert="tcs-soft-skills.jpg" alt="Soft Skills, TCS" loading="lazy" /></span>
+            <figcaption>Soft Skills, TCS</figcaption>
+          </figure>
+          <figure class="cert-item reveal tilt" tabindex="0" role="button" aria-label="View certificate: Effective Leadership, HP">
+            <span class="cert-thumb"><img data-cert="hp-leadership.jpg" alt="Effective Leadership, HP" loading="lazy" /></span>
+            <figcaption>Effective Leadership, HP</figcaption>
+          </figure>
+          <figure class="cert-item reveal tilt" tabindex="0" role="button" aria-label="View certificate: Gemini for Google Workspace">
+            <span class="cert-thumb"><img data-cert="gemini-workspace.jpg" alt="Gemini for Google Workspace" loading="lazy" /></span>
+            <figcaption>Gemini for Google Workspace</figcaption>
+          </figure>
+          <figure class="cert-item reveal tilt" tabindex="0" role="button" aria-label="View certificate: ICIL 2026 Participation">
+            <span class="cert-thumb"><img data-cert="icil-2026.jpg" alt="ICIL 2026 Participation" loading="lazy" /></span>
+            <figcaption>ICIL 2026 Participation</figcaption>
+          </figure>
+          <figure class="cert-item reveal tilt" tabindex="0" role="button" aria-label="View certificate: National Conference">
+            <span class="cert-thumb"><img data-cert="national-conference.jpg" alt="National Conference" loading="lazy" /></span>
+            <figcaption>National Conference</figcaption>
+          </figure>
+          <figure class="cert-item reveal tilt" tabindex="0" role="button" aria-label="View certificate: Seminar Certificate">
+            <span class="cert-thumb"><img data-cert="seminar-certificate.jpg" alt="Seminar Certificate" loading="lazy" /></span>
+            <figcaption>Seminar Certificate</figcaption>
+          </figure>
+          <figure class="cert-item reveal tilt" tabindex="0" role="button" aria-label="View certificate: ITI COPA Certificate, NIPS">
+            <span class="cert-thumb"><img data-cert="iti-copa.jpg" alt="ITI COPA Certificate, NIPS" loading="lazy" /></span>
+            <figcaption>ITI COPA Certificate, NIPS</figcaption>
+          </figure>
+          <figure class="cert-item reveal tilt" tabindex="0" role="button" aria-label="View certificate: AI for Industry, Education & Research (Book Chapter)">
+            <span class="cert-thumb"><img data-cert="ai-book-chapter.jpg" alt="AI for Industry, Education &amp; Research (Book Chapter)" loading="lazy" /></span>
+            <figcaption>AI for Industry, Education &amp; Research (Book Chapter)</figcaption>
+          </figure>
         </div>
+        <p class="cert-hint reveal">Click any certificate to view it full-size.</p>
       </div>
     </section>
 
@@ -358,7 +433,27 @@
     </div>
   </footer>
 
+
+  <!-- Certificate lightbox -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Certificate viewer" hidden>
+    <button class="lightbox-btn lightbox-close" id="lightbox-close" aria-label="Close viewer">&times;</button>
+    <button class="lightbox-btn lightbox-prev" id="lightbox-prev" aria-label="Previous certificate">&#8592;</button>
+    <figure class="lightbox-figure">
+      <img class="lightbox-img" id="lightbox-img" src="" alt="" />
+      <figcaption class="lightbox-caption" id="lightbox-caption"></figcaption>
+    </figure>
+    <button class="lightbox-btn lightbox-next" id="lightbox-next" aria-label="Next certificate">&#8594;</button>
+  </div>
+
+  <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="assets/certs/data-1.js"></script>
+  <script src="assets/certs/data-2.js"></script>
+  <script src="assets/certs/data-3.js"></script>
+  <script src="assets/certs/data-4.js"></script>
+  <script src="assets/certs/data-5.js"></script>
+  <script src="assets/certs/data-6.js"></script>
   <script src="main.js"></script>
 </body>
 </html>
