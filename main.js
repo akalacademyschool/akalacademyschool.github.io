@@ -1,6 +1,7 @@
 /* Portfolio site — Three.js hero (drag-to-rotate + parallax), nav, scroll
-   reveal, lightbox gallery, stat counters, 3D tilt, magnetic buttons,
-   cursor glow, scroll progress, title parallax. */
+   reveal, split-text headings, lightbox gallery, stat counters, 3D tilt,
+   magnetic buttons, cursor glow, scroll progress, title parallax,
+   gallery scroll-tilt, floating parallax shapes, aurora background. */
 
 (function () {
   "use strict";
@@ -27,60 +28,77 @@
     var world = new THREE.Group();
     scene.add(world);
 
-    var ACCENT = 0x38bdf8;
+    var mobile = window.innerWidth < 768;
 
-    // Floating particles
-    var particleCount = window.innerWidth < 768 ? 220 : 480;
-    var positions = new Float32Array(particleCount * 3);
-    for (var i = 0; i < particleCount; i++) {
-      positions[i * 3] = (Math.random() - 0.5) * 34;
-      positions[i * 3 + 1] = (Math.random() - 0.5) * 22;
-      positions[i * 3 + 2] = (Math.random() - 0.5) * 18;
-    }
-    var particleGeo = new THREE.BufferGeometry();
-    particleGeo.setAttribute("position", new THREE.BufferAttribute(positions, 3));
-    var particleMat = new THREE.PointsMaterial({
-      color: ACCENT,
-      size: 0.09,
-      transparent: true,
-      opacity: 0.65,
-      blending: THREE.AdditiveBlending,
-      depthWrite: false
-    });
-    var particles = new THREE.Points(particleGeo, particleMat);
-    world.add(particles);
-
-    // Wireframe geometric shapes drifting slowly
-    var shapes = [];
-    var geos = [
-      new THREE.IcosahedronGeometry(1.1, 0),
-      new THREE.OctahedronGeometry(0.9, 0),
-      new THREE.TorusGeometry(0.8, 0.28, 10, 26),
-      new THREE.TetrahedronGeometry(1.0, 0),
-      new THREE.IcosahedronGeometry(0.65, 0)
-    ];
-    for (var s = 0; s < geos.length; s++) {
-      var mat = new THREE.MeshBasicMaterial({
-        color: ACCENT,
-        wireframe: true,
+    // Layered particle fields: bright near layer, dim far layer, teal dust
+    function makeParticles(count, spread, size, color, opacity) {
+      var positions = new Float32Array(count * 3);
+      for (var i = 0; i < count; i++) {
+        positions[i * 3] = (Math.random() - 0.5) * spread[0];
+        positions[i * 3 + 1] = (Math.random() - 0.5) * spread[1];
+        positions[i * 3 + 2] = (Math.random() - 0.5) * spread[2];
+      }
+      var geo = new THREE.BufferGeometry();
+      geo.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+      var mat = new THREE.PointsMaterial({
+        color: color,
+        size: size,
         transparent: true,
-        opacity: 0.22
+        opacity: opacity,
+        blending: THREE.AdditiveBlending,
+        depthWrite: false
       });
-      var mesh = new THREE.Mesh(geos[s], mat);
-      mesh.position.set(
-        (Math.random() - 0.5) * 22,
-        (Math.random() - 0.5) * 12,
-        -4 - Math.random() * 6
-      );
-      mesh.userData = {
-        rx: (Math.random() - 0.5) * 0.004,
-        ry: (Math.random() - 0.5) * 0.006,
-        fy: Math.random() * Math.PI * 2,
-        fs: 0.3 + Math.random() * 0.5,
-        baseY: mesh.position.y
-      };
-      world.add(mesh);
-      shapes.push(mesh);
+      return new THREE.Points(geo, mat);
+    }
+    var particlesNear = makeParticles(mobile ? 140 : 300, [30, 20, 12], 0.11, 0x7dd3fc, 0.8);
+    var particlesFar = makeParticles(mobile ? 170 : 430, [46, 30, 28], 0.07, 0x3b82f6, 0.5);
+    var particlesDust = makeParticles(mobile ? 90 : 200, [24, 16, 8], 0.16, 0x2dd4bf, 0.35);
+    world.add(particlesNear);
+    world.add(particlesFar);
+    world.add(particlesDust);
+
+    // Rich wireframe geometry: torus knots, icosahedrons, floating rings
+    // at different depths, colored across the cyan/blue family
+    var shapes = [];
+    var defs = [
+      { geo: new THREE.TorusKnotGeometry(0.85, 0.24, 110, 14), color: 0x38bdf8, opacity: 0.28 },
+      { geo: new THREE.IcosahedronGeometry(1.15, 1), color: 0x60a5fa, opacity: 0.22 },
+      { geo: new THREE.TorusGeometry(1.25, 0.05, 12, 56), color: 0x2dd4bf, opacity: 0.30 },
+      { geo: new THREE.OctahedronGeometry(0.95, 0), color: 0x7dd3fc, opacity: 0.24 },
+      { geo: new THREE.TorusGeometry(1.9, 0.035, 10, 72), color: 0x38bdf8, opacity: 0.12 },
+      { geo: new THREE.TetrahedronGeometry(1.0, 0), color: 0x93c5fd, opacity: 0.22 },
+      { geo: new THREE.IcosahedronGeometry(0.6, 0), color: 0x38bdf8, opacity: 0.30 },
+      { geo: new THREE.TorusKnotGeometry(0.5, 0.15, 90, 12), color: 0x60a5fa, opacity: 0.26 }
+    ];
+    if (mobile) defs = defs.slice(0, 5);
+    for (var s = 0; s < defs.length; s++) {
+      (function (def) {
+        var mat = new THREE.MeshBasicMaterial({
+          color: def.color,
+          wireframe: true,
+          transparent: true,
+          opacity: def.opacity
+        });
+        var mesh = new THREE.Mesh(def.geo, mat);
+        // Keep shapes off-center so the headline stays readable
+        var side = Math.random() < 0.5 ? -1 : 1;
+        mesh.position.set(
+          side * (5 + Math.random() * 8),
+          (Math.random() - 0.5) * 12,
+          -2 - Math.random() * 10
+        );
+        mesh.userData = {
+          rx: (Math.random() - 0.5) * 0.005,
+          ry: (Math.random() - 0.5) * 0.007,
+          rz: (Math.random() - 0.5) * 0.003,
+          fy: Math.random() * Math.PI * 2,
+          fs: 0.3 + Math.random() * 0.5,
+          fa: 0.5 + Math.random() * 0.5,
+          baseY: mesh.position.y
+        };
+        world.add(mesh);
+        shapes.push(mesh);
+      })(defs[s]);
     }
 
     // Subtle mouse parallax (target + lerp)
@@ -139,14 +157,18 @@
       var t = clock.getElapsedTime();
 
       if (!reduceMotion) {
-        particles.rotation.y = t * 0.02;
-        particles.position.y = Math.sin(t * 0.25) * 0.35;
+        particlesNear.rotation.y = t * 0.022;
+        particlesFar.rotation.y = -t * 0.012;
+        particlesFar.rotation.x = Math.sin(t * 0.05) * 0.05;
+        particlesDust.rotation.y = t * 0.03;
+        particlesDust.position.y = Math.sin(t * 0.3) * 0.3;
 
         for (var k = 0; k < shapes.length; k++) {
           var m = shapes[k];
           m.rotation.x += m.userData.rx;
           m.rotation.y += m.userData.ry;
-          m.position.y = m.userData.baseY + Math.sin(t * m.userData.fs + m.userData.fy) * 0.8;
+          m.rotation.z += m.userData.rz;
+          m.position.y = m.userData.baseY + Math.sin(t * m.userData.fs + m.userData.fy) * m.userData.fa;
         }
 
         // Inertia after drag release
@@ -196,6 +218,107 @@
           t.style.setProperty("--py", offset.toFixed(1) + "px");
         });
       }
+    }
+
+    function request() {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    }
+    window.addEventListener("scroll", request, { passive: true });
+    window.addEventListener("resize", request);
+    update();
+  }
+
+  /* ---------- Split-text reveal for section headings ---------- */
+  function initSplitText() {
+    var titles = document.querySelectorAll(".section-title");
+    if (!titles.length) return;
+    if (reduceMotion || !("IntersectionObserver" in window)) return;
+
+    titles.forEach(function (t) {
+      var words = t.textContent.trim().split(/\s+/);
+      if (words.length < 2) return; // single-word headings keep the plain reveal
+      t.innerHTML = "";
+      words.forEach(function (w, i) {
+        var s = document.createElement("span");
+        s.className = "w";
+        s.textContent = w;
+        s.setAttribute("aria-hidden", "true");
+        s.style.setProperty("--wd", (i * 75) + "ms");
+        t.appendChild(s);
+        t.appendChild(document.createTextNode(" "));
+      });
+      t.classList.add("split");
+      t.setAttribute("aria-label", words.join(" "));
+    });
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("split-in");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    titles.forEach(function (t) {
+      if (t.classList.contains("split")) observer.observe(t);
+    });
+  }
+
+  /* ---------- Subtle 3D perspective tilt on the gallery grid while scrolling ---------- */
+  function initGalleryTilt() {
+    if (reduceMotion) return;
+    var gallery = document.querySelector(".cert-gallery");
+    if (!gallery) return;
+    var ticking = false;
+
+    function update() {
+      ticking = false;
+      var r = gallery.getBoundingClientRect();
+      var vh = document.documentElement.clientHeight;
+      if (r.bottom < -240 || r.top > vh + 240) return;
+      var rel = (r.top + r.height / 2 - vh / 2) / vh; // -0.5 .. 0.5
+      var deg = (rel * 9).toFixed(2);
+      gallery.style.transform = "perspective(1400px) rotateX(" + deg + "deg)";
+    }
+
+    function request() {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    }
+    window.addEventListener("scroll", request, { passive: true });
+    window.addEventListener("resize", request);
+    update();
+  }
+
+  /* ---------- Floating parallax shapes drifting at different scroll speeds ---------- */
+  function initParallaxShapes() {
+    if (reduceMotion) return;
+    var nodes = document.querySelectorAll(".float-shape");
+    if (!nodes.length) return;
+    var items = [];
+    nodes.forEach(function (el) {
+      items.push({
+        el: el,
+        speed: parseFloat(el.getAttribute("data-speed") || "0.15")
+      });
+    });
+    var ticking = false;
+
+    function update() {
+      ticking = false;
+      var vh = document.documentElement.clientHeight;
+      items.forEach(function (o) {
+        var r = o.el.getBoundingClientRect();
+        if (r.bottom < -160 || r.top > vh + 160) return;
+        var rel = (r.top - vh / 2) / vh; // -0.5 .. 0.5
+        var y = (-rel * o.speed * vh * 2).toFixed(1);
+        o.el.style.transform = "translate3d(0," + y + "px,0)";
+      });
     }
 
     function request() {
@@ -498,8 +621,11 @@
     initNav();
     initActiveNav();
     initStagger();
+    initSplitText();
     initReveal();
     initScrollFX();
+    initGalleryTilt();
+    initParallaxShapes();
     initCounters();
     initTilt();
     initMagnetic();
