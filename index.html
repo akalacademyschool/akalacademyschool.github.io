@@ -12,6 +12,12 @@
 </head>
 <body>
 
+  <div class="aurora-field" aria-hidden="true">
+    <span class="aurora-blob b1"></span>
+    <span class="aurora-blob b2"></span>
+    <span class="aurora-blob b3"></span>
+    <span class="aurora-blob b4"></span>
+  </div>
   <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
 
   <header class="site-header" id="site-header">
@@ -54,6 +60,7 @@
   <main>
     <!-- About -->
     <section class="section" id="about">
+      <span class="float-shape ring" data-speed="0.10" style="top:110px;right:5%;" aria-hidden="true"></span>
       <div class="container">
         <h2 class="section-title reveal">About Me</h2>
         <div class="about-grid">
@@ -81,7 +88,7 @@
           <span class="stat-label">Internships &amp; Roles</span>
         </div>
         <div class="stat reveal">
-          <span class="stat-number" data-target="12" data-decimals="0">0</span>
+          <span class="stat-number" data-target="16" data-decimals="0">0</span>
           <span class="stat-label">Certificates Earned</span>
         </div>
         <div class="stat reveal">
@@ -97,6 +104,7 @@
 
     <!-- Skills -->
     <section class="section section-alt" id="skills">
+      <span class="float-shape plus" data-speed="0.16" style="top:70px;left:6%;" aria-hidden="true"></span>
       <div class="container">
         <h2 class="section-title reveal">Skills</h2>
         <div class="skills-grid">
@@ -138,6 +146,7 @@
 
     <!-- Experience -->
     <section class="section" id="experience">
+      <span class="float-shape dot" data-speed="0.22" style="top:150px;right:8%;" aria-hidden="true"></span>
       <div class="container">
         <h2 class="section-title reveal">Experience</h2>
         <div class="timeline">
@@ -216,6 +225,7 @@
 
     <!-- Projects -->
     <section class="section section-alt" id="projects">
+      <span class="float-shape ring sm" data-speed="0.13" style="bottom:80px;left:4%;" aria-hidden="true"></span>
       <div class="container">
         <h2 class="section-title reveal">Projects</h2>
         <div class="projects-grid">
@@ -241,6 +251,7 @@
 
     <!-- Publications -->
     <section class="section" id="publications">
+      <span class="float-shape dot" data-speed="0.19" style="top:60px;left:7%;" aria-hidden="true"></span>
       <div class="container">
         <h2 class="section-title reveal">Publications</h2>
         <div class="pub-list">
@@ -250,6 +261,10 @@
             <p class="pub-title">&ldquo;Educational Leadership and Student Psychological Wellbeing: The Role of Social Support and Academic Achievement&rdquo;</p>
             <p class="pub-meta">JAAFR &ndash; Journal of Advance and Future Research (www.JAAFR.org), ISSN 2984-889X, Vol. 4, Issue 5, pp. c910&ndash;c919</p>
             <p class="pub-meta">DOI: <a href="https://doi.org/10.56975/jaafr.v4i5.510170" target="_blank" rel="noopener">https://doi.org/10.56975/jaafr.v4i5.510170</a></p>
+            <figure class="cert-item pub-thumb reveal tilt" tabindex="0" role="button" aria-label="View first page of the published JAAFR paper">
+              <span class="cert-thumb"><img data-cert="paper-first-page.jpg" alt="First page of the published paper" loading="lazy" /></span>
+              <figcaption>View first page</figcaption>
+            </figure>
           </article>
           <article class="pub-item reveal">
             <span class="card-date">Sep 2024</span>
@@ -272,9 +287,9 @@
       <div class="container">
         <h2 class="section-title reveal">Certificates</h2>
                 <div class="cert-gallery">
-          <figure class="cert-item reveal tilt" tabindex="0" role="button" aria-label="View certificate: JAAFR Research Paper Confirmation">
-            <span class="cert-thumb"><img data-cert="jaafr-confirmation.jpg" alt="JAAFR Research Paper Confirmation" loading="lazy" /></span>
-            <figcaption>JAAFR Research Paper Confirmation</figcaption>
+          <figure class="cert-item reveal tilt" tabindex="0" role="button" aria-label="View certificate: JAAFR Paper Confirmation">
+            <span class="cert-thumb"><img data-cert="jaafr-confirmation.jpg" alt="JAAFR Paper Confirmation" loading="lazy" /></span>
+            <figcaption>JAAFR Paper Confirmation</figcaption>
           </figure>
           <figure class="cert-item reveal tilt" tabindex="0" role="button" aria-label="View certificate: HR Internship Certificate">
             <span class="cert-thumb"><img data-cert="hr-internship.jpg" alt="HR Internship Certificate" loading="lazy" /></span>
@@ -316,9 +331,25 @@
             <span class="cert-thumb"><img data-cert="iti-copa.jpg" alt="ITI COPA Certificate, NIPS" loading="lazy" /></span>
             <figcaption>ITI COPA Certificate, NIPS</figcaption>
           </figure>
-          <figure class="cert-item reveal tilt" tabindex="0" role="button" aria-label="View certificate: AI for Industry, Education & Research (Book Chapter)">
-            <span class="cert-thumb"><img data-cert="ai-book-chapter.jpg" alt="AI for Industry, Education &amp; Research (Book Chapter)" loading="lazy" /></span>
-            <figcaption>AI for Industry, Education &amp; Research (Book Chapter)</figcaption>
+          <figure class="cert-item reveal tilt" tabindex="0" role="button" aria-label="View certificate: AI for Industry, Education & Research (Book)">
+            <span class="cert-thumb"><img data-cert="ai-book-chapter.jpg" alt="AI for Industry, Education &amp; Research (Book)" loading="lazy" /></span>
+            <figcaption>AI for Industry, Education &amp; Research (Book)</figcaption>
+          </figure>
+          <figure class="cert-item reveal tilt" tabindex="0" role="button" aria-label="View certificate: JAAFR Certificate of Publication">
+            <span class="cert-thumb"><img data-cert="jaafr-certificate.jpg" alt="JAAFR Certificate of Publication" loading="lazy" /></span>
+            <figcaption>JAAFR Certificate of Publication</figcaption>
+          </figure>
+          <figure class="cert-item reveal tilt" tabindex="0" role="button" aria-label="View certificate: Educational Leadership &amp; Academic Practice, Udemy">
+            <span class="cert-thumb"><img data-cert="udemy-leadership.jpg" alt="Educational Leadership &amp; Academic Practice, Udemy" loading="lazy" /></span>
+            <figcaption>Educational Leadership &amp; Academic Practice, Udemy</figcaption>
+          </figure>
+          <figure class="cert-item reveal tilt" tabindex="0" role="button" aria-label="View certificate: Data Analysis Using Python, IIRA">
+            <span class="cert-thumb"><img data-cert="iira-python.jpg" alt="Data Analysis Using Python, IIRA" loading="lazy" /></span>
+            <figcaption>Data Analysis Using Python, IIRA</figcaption>
+          </figure>
+          <figure class="cert-item reveal tilt" tabindex="0" role="button" aria-label="View certificate: Paper Presentation &mdash; National Conference on Indian Knowledge System">
+            <span class="cert-thumb"><img data-cert="iks-presentation.jpg" alt="Paper Presentation &mdash; National Conference on Indian Knowledge System" loading="lazy" /></span>
+            <figcaption>Paper Presentation &mdash; National Conference on Indian Knowledge System</figcaption>
           </figure>
         </div>
         <p class="cert-hint reveal">Click any certificate to view it full-size.</p>
@@ -397,6 +428,7 @@
 
     <!-- Contact -->
     <section class="section" id="contact">
+      <span class="float-shape ring" data-speed="0.11" style="top:100px;right:7%;" aria-hidden="true"></span>
       <div class="container">
         <h2 class="section-title reveal">Get in Touch</h2>
         <p class="contact-lead reveal">Interested in instructional design, HR, data analysis, or education research? Let&rsquo;s connect.</p>
@@ -413,9 +445,9 @@
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.55V9h3.57v11.45z"/></svg>
             <div><strong>LinkedIn</strong><span>linkedin.com/in/sandeepkumarchaurasiya</span></div>
           </a>
-          <a class="contact-card reveal" href="https://sandeepchauasiya.github.io" target="_blank" rel="noopener">
+          <a class="contact-card reveal" href="https://akalacademyschool.github.io" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm7.93 9h-3.02a15.7 15.7 0 00-1.16-5.17A8.02 8.02 0 0119.93 11zM12 4.07A13.7 13.7 0 0114.9 11H9.1A13.7 13.7 0 0112 4.07zM4.07 13h3.02c.2 2.08.6 3.81 1.16 5.17A8.02 8.02 0 014.07 13zm3.02-2H4.07a8.02 8.02 0 014.18-5.17A15.7 15.7 0 007.09 11zm2.01 2h5.8a13.7 13.7 0 01-2.9 6.93A13.7 13.7 0 019.1 13zm6.65 0h3.02a8.02 8.02 0 01-4.18 5.17c.56-1.36.96-3.09 1.16-5.17z"/></svg>
-            <div><strong>Portfolio</strong><span>sandeepchauasiya.github.io</span></div>
+            <div><strong>Portfolio</strong><span>akalacademyschool.github.io</span></div>
           </a>
           <div class="contact-card reveal">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 00-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 00-7-7zm0 9.5A2.5 2.5 0 1112 6.5a2.5 2.5 0 010 5z"/></svg>
@@ -454,6 +486,10 @@
   <script src="assets/certs/data-4.js"></script>
   <script src="assets/certs/data-5.js"></script>
   <script src="assets/certs/data-6.js"></script>
+  <script src="assets/certs/data-7.js"></script>
+  <script src="assets/certs/data-8.js"></script>
+  <script src="assets/certs/data-9.js"></script>
+  <script src="assets/certs/data-10.js"></script>
   <script src="main.js"></script>
 </body>
 </html>
