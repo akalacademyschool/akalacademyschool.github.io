@@ -1,7 +1,9 @@
-/* Portfolio site — Three.js hero (drag-to-rotate + parallax), nav, scroll
-   reveal, split-text headings, lightbox gallery, stat counters, 3D tilt,
+/* Portfolio site — Three.js hero (realistic studio lighting, environment
+   reflections, fog; drag-to-rotate + parallax), nav, scroll reveal,
+   split-text headings, lightbox gallery, stat counters, 3D tilt,
    magnetic buttons, cursor glow, scroll progress, title parallax,
-   gallery scroll-tilt, floating parallax shapes, aurora background. */
+   gallery scroll-tilt, floating parallax shapes, aurora background,
+   hero scroll parallax. */
 
 (function () {
   "use strict";
@@ -19,10 +21,54 @@
     var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
     renderer.setSize(hero.clientWidth, hero.clientHeight);
+    renderer.outputEncoding = THREE.sRGBEncoding;
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.12;
 
     var scene = new THREE.Scene();
     var camera = new THREE.PerspectiveCamera(60, hero.clientWidth / hero.clientHeight, 0.1, 100);
     camera.position.z = 14;
+
+    // Gentle depth fog so distant geometry melts into the page background
+    scene.fog = new THREE.FogExp2(0x0b0f17, 0.016);
+
+    // Realistic studio lighting rig: warm key, cool fill, teal rim
+    var keyLight = new THREE.DirectionalLight(0xfff2e0, 1.15);
+    keyLight.position.set(6, 9, 7);
+    scene.add(keyLight);
+    var fillLight = new THREE.DirectionalLight(0x7dd3fc, 0.5);
+    fillLight.position.set(-8, 2, 5);
+    scene.add(fillLight);
+    var rimLight = new THREE.DirectionalLight(0x2dd4bf, 0.9);
+    rimLight.position.set(-2, 5, -9);
+    scene.add(rimLight);
+    scene.add(new THREE.HemisphereLight(0x9ecbff, 0x0b0f17, 0.35));
+
+    // Generated studio environment so metallic shapes reflect realistically
+    (function buildEnvironment() {
+      try {
+        var pmrem = new THREE.PMREMGenerator(renderer);
+        var env = new THREE.Scene();
+        env.background = new THREE.Color(0x05080e);
+        function softbox(hex, intensity, w, h, x, y, z) {
+          var m = new THREE.Mesh(
+            new THREE.PlaneGeometry(w, h),
+            new THREE.MeshBasicMaterial({ side: THREE.DoubleSide })
+          );
+          m.material.color.setHex(hex).multiplyScalar(intensity);
+          m.position.set(x, y, z);
+          m.lookAt(0, 0, 0);
+          env.add(m);
+        }
+        softbox(0xcfeaff, 5.0, 10, 10, 7, 6, 5);   // key softbox
+        softbox(0x38bdf8, 3.0, 9, 9, -8, 2, 3);    // cool fill strip
+        softbox(0x2dd4bf, 2.5, 7, 7, -1, 5, -9);   // rim glow
+        softbox(0xffffff, 1.6, 14, 3, 0, -7, 2);   // floor bounce
+        var rt = pmrem.fromScene(env, 0.06);
+        scene.environment = rt.texture;
+        pmrem.dispose();
+      } catch (e) { /* reflections are decorative; the light rig still applies */ }
+    })();
 
     // Draggable group holding the whole scene
     var world = new THREE.Group();
@@ -57,29 +103,33 @@
     world.add(particlesFar);
     world.add(particlesDust);
 
-    // Rich wireframe geometry: torus knots, icosahedrons, floating rings
-    // at different depths, colored across the cyan/blue family
+    // Physically-lit geometry: brushed metals, clearcoat chrome and a few
+    // wireframe tech accents, colored across the cyan/blue family
+    function metal(color, extra) {
+      var p = { color: color, metalness: 0.85, roughness: 0.3, envMapIntensity: 1.15 };
+      if (extra) for (var k in extra) p[k] = extra[k];
+      return new THREE.MeshStandardMaterial(p);
+    }
+    function chrome(color, extra) {
+      var p = { color: color, metalness: 0.9, roughness: 0.22, clearcoat: 1.0, clearcoatRoughness: 0.28, envMapIntensity: 1.3 };
+      if (extra) for (var k in extra) p[k] = extra[k];
+      return new THREE.MeshPhysicalMaterial(p);
+    }
     var shapes = [];
     var defs = [
-      { geo: new THREE.TorusKnotGeometry(0.85, 0.24, 110, 14), color: 0x38bdf8, opacity: 0.28 },
-      { geo: new THREE.IcosahedronGeometry(1.15, 1), color: 0x60a5fa, opacity: 0.22 },
-      { geo: new THREE.TorusGeometry(1.25, 0.05, 12, 56), color: 0x2dd4bf, opacity: 0.30 },
-      { geo: new THREE.OctahedronGeometry(0.95, 0), color: 0x7dd3fc, opacity: 0.24 },
-      { geo: new THREE.TorusGeometry(1.9, 0.035, 10, 72), color: 0x38bdf8, opacity: 0.12 },
-      { geo: new THREE.TetrahedronGeometry(1.0, 0), color: 0x93c5fd, opacity: 0.22 },
-      { geo: new THREE.IcosahedronGeometry(0.6, 0), color: 0x38bdf8, opacity: 0.30 },
-      { geo: new THREE.TorusKnotGeometry(0.5, 0.15, 90, 12), color: 0x60a5fa, opacity: 0.26 }
+      { geo: new THREE.TorusKnotGeometry(0.85, 0.24, 110, 14), mat: chrome(0x8fd4ff) },
+      { geo: new THREE.IcosahedronGeometry(1.15, 1), mat: metal(0x5aa9f5, { wireframe: true, transparent: true, opacity: 0.5, roughness: 0.4 }) },
+      { geo: new THREE.TorusGeometry(1.25, 0.05, 12, 56), mat: metal(0x2dd4bf, { metalness: 0.95, roughness: 0.25, envMapIntensity: 1.3 }) },
+      { geo: new THREE.OctahedronGeometry(0.95, 0), mat: chrome(0xa8e0ff, { wireframe: true, transparent: true, opacity: 0.55, clearcoat: 0.8 }) },
+      { geo: new THREE.TorusGeometry(1.9, 0.035, 10, 72), mat: metal(0x3b82f6, { transparent: true, opacity: 0.85, roughness: 0.35 }) },
+      { geo: new THREE.TetrahedronGeometry(1.0, 0), mat: metal(0xd6ecff, { metalness: 0.7 }) },
+      { geo: new THREE.IcosahedronGeometry(0.6, 0), mat: metal(0x7dd3fc, { wireframe: true, transparent: true, opacity: 0.6, roughness: 0.25 }) },
+      { geo: new THREE.TorusKnotGeometry(0.5, 0.15, 90, 12), mat: metal(0x60a5fa) }
     ];
     if (mobile) defs = defs.slice(0, 5);
     for (var s = 0; s < defs.length; s++) {
       (function (def) {
-        var mat = new THREE.MeshBasicMaterial({
-          color: def.color,
-          wireframe: true,
-          transparent: true,
-          opacity: def.opacity
-        });
-        var mesh = new THREE.Mesh(def.geo, mat);
+        var mesh = new THREE.Mesh(def.geo, def.mat);
         // Keep shapes off-center so the headline stays readable
         var side = Math.random() < 0.5 ? -1 : 1;
         mesh.position.set(
@@ -199,6 +249,7 @@
   function initScrollFX() {
     var bar = document.getElementById("scroll-progress");
     var titles = document.querySelectorAll(".section-title");
+    var heroContent = document.querySelector(".hero-content");
     var ticking = false;
 
     function update() {
@@ -209,8 +260,17 @@
       var p = max > 0 ? y / max : 0;
       if (bar) bar.style.width = (p * 100).toFixed(2) + "%";
 
-      if (!reduceMotion && titles.length) {
-        var vh = doc.clientHeight;
+      if (reduceMotion) return;
+      var vh = doc.clientHeight;
+
+      // Soft scroll-linked parallax: hero content drifts up and fades
+      if (heroContent && y < vh * 1.2) {
+        var hy = Math.min(y * 0.3, vh * 0.8);
+        heroContent.style.transform = "translate3d(0," + hy.toFixed(1) + "px,0)";
+        heroContent.style.opacity = Math.max(0, 1 - y / (vh * 0.85)).toFixed(3);
+      }
+
+      if (titles.length) {
         titles.forEach(function (t) {
           var r = t.getBoundingClientRect();
           if (r.bottom < -120 || r.top > vh + 120) return;
@@ -512,7 +572,7 @@
     function close() {
       box.classList.remove("open");
       document.body.style.overflow = "";
-      setTimeout(function () { box.hidden = true; }, 320);
+      setTimeout(function () { box.hidden = true; }, 400);
       if (lastFocus && lastFocus.focus) lastFocus.focus();
     }
 
@@ -546,10 +606,19 @@
     });
   }
 
-  /* ---------- Mobile nav toggle ---------- */
+  /* ---------- Mobile nav toggle + scroll-intensified glass header ---------- */
   function initNav() {
     var toggle = document.getElementById("nav-toggle");
     var links = document.getElementById("nav-links");
+    var header = document.getElementById("site-header");
+    if (header) {
+      var onScroll = function () {
+        var y = window.pageYOffset || document.documentElement.scrollTop;
+        header.classList.toggle("scrolled", y > 24);
+      };
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+    }
     if (!toggle || !links) return;
 
     toggle.addEventListener("click", function () {
