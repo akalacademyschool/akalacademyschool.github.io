@@ -1,93 +1,328 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<title>Sandeep Kumar Chaurasiya — 3D Portfolio</title>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Sandeep Kumar Chaurasiya — Portfolio</title>
+<meta name="description" content="Portfolio of Sandeep Kumar Chaurasiya — Admin Executive, Instructional Designer, HR Professional, Data Analyst, Educator. MA Education, Lovely Professional University.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,500&family=Inter:wght@400;500;600;700&display=swap">
 <style>
-/* Concept: one continuous 3D world with a floating photo gallery. Each slide is a stage on a long runway; the camera flies between stages while a glass text card sits beside the object. */
 :root{
-  --bg:#06180f; --bg2:#0b2a1d; --fg:#e9f6ee; --muted:#9db9a9; --accent:#9be7b8; --gold:#f2b84b; --coral:#ee6a55; --leaf:#3fae74;
-  --glass:rgba(10,36,25,.62); --line:rgba(155,231,184,.22);
-  --f-display:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif; --f-body:'DM Sans','Segoe UI',system-ui,sans-serif; --f-mono:'DM Mono',ui-monospace,Menlo,monospace;
-  color-scheme:dark;
+--navy:#0a1628;--navy2:#0d1b2e;--card:#101f36;--gold:#c9a227;--gold2:#e8c95a;
+--ivory:#f4efe4;--muted:#a9b2c4;--line:rgba(201,162,39,.28);--line2:rgba(201,162,39,.14);
+--serif:'Playfair Display',Georgia,serif;--sans:'Inter',system-ui,-apple-system,sans-serif;
 }
-html,body{height:100%;margin:0;overflow:hidden}
-body{background:radial-gradient(120% 90% at 50% 20%,var(--bg2),var(--bg) 70%);background-color:var(--bg);color:var(--fg);font-family:var(--f-body);-webkit-font-smoothing:antialiased}
-#gl{position:fixed;inset:0;width:100%;height:100%;display:block;touch-action:pan-y;cursor:grab}
-#gl.hov{cursor:pointer}
-.ui{position:fixed;inset:0;pointer-events:none;padding-inline:max(16px,3vw)}
-.top{position:absolute;left:max(16px,3vw);right:max(16px,3vw);top:calc(env(safe-area-inset-top,0px) + 14px);display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.brand{display:flex;align-items:center;gap:10px;min-width:0}.brand i{width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 14px var(--accent);flex:none}
-.brand span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.top .r{display:flex;gap:14px;align-items:center;pointer-events:auto}
-.timer{cursor:pointer;font-variant-numeric:tabular-nums;background:none;border:0;color:inherit;font:inherit;letter-spacing:inherit;text-transform:inherit;padding:0}
-.count{font-variant-numeric:tabular-nums;color:var(--fg);white-space:nowrap}
-.card{box-sizing:border-box;position:absolute;top:calc(50% + 44px);transform:translateY(-50%);width:min(36rem,46vw);max-height:calc(100% - 260px);overflow:auto;padding:36px 40px 32px;border:1px solid var(--line);border-radius:22px;background:var(--glass);backdrop-filter:blur(16px) saturate(1.3);-webkit-backdrop-filter:blur(16px) saturate(1.3);box-shadow:0 30px 80px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.07);pointer-events:auto;opacity:0;visibility:hidden;transition:opacity .5s,transform .7s cubic-bezier(.2,.9,.2,1),visibility 0s .5s}
-.card.left{left:max(16px,3vw);transform:translate(-40px,-50%)}.card.right{right:max(16px,3vw);transform:translate(40px,-50%)}
-.card.on{opacity:1;visibility:visible;transform:translate(0,-50%);transition:opacity .6s .35s,transform .9s .35s cubic-bezier(.2,.9,.2,1),visibility 0s}
-.eyebrow{font-family:var(--f-mono);font-size:14.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:0 0 12px}
-.card h2{font-family:var(--f-display);font-weight:800;font-size:clamp(2.4rem,4.2vw,3.8rem);line-height:1.02;letter-spacing:-.02em;margin:0 0 16px;text-wrap:balance}
-.card h2 em{font-style:normal;color:var(--accent)}
-.card p{margin:0 0 14px;font-size:clamp(1.15rem,1.55vw,1.35rem);line-height:1.5;color:#d3e8da;max-width:34em}
-.card ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
-.card li{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:baseline;font-size:1.18rem;line-height:1.45;color:var(--fg)}
-.card li b{font-family:var(--f-mono);font-weight:500;font-size:.9rem;color:var(--bg);background:var(--accent);border-radius:7px;padding:2px 8px;white-space:nowrap}
-.card a{color:var(--accent);word-break:break-all}
-.stats{display:flex;gap:18px;flex-wrap:wrap;margin-top:6px}.stat{min-width:0;flex:1 1 9rem}.stat strong{display:block;font-family:var(--f-display);font-weight:800;font-size:2.9rem;line-height:1;color:var(--accent);font-variant-numeric:tabular-nums}.stat span{font-size:1rem;color:var(--muted);line-height:1.35;display:block;margin-top:4px}
-.quote{font-family:var(--f-display);font-weight:700;font-size:1.4rem;line-height:1.25;color:var(--fg);margin:4px 0 0}
-.card .hint{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:16px}
-.bottom{position:absolute;left:max(16px,3vw);right:max(16px,3vw);bottom:calc(env(safe-area-inset-bottom,0px) + 16px);display:flex;align-items:center;gap:14px;pointer-events:auto}
-.btn{appearance:none;border:1px solid var(--line);background:var(--glass);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:var(--fg);width:46px;height:46px;border-radius:50%;font-size:20px;cursor:pointer;display:grid;place-items:center;transition:transform .2s,background .2s;flex:none}
-.btn:hover{transform:scale(1.1);background:rgba(155,231,184,.2)}.btn:focus-visible,.dot:focus-visible,.pill:focus-visible,.timer:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-.dots{display:flex;gap:7px;flex:1;justify-content:center;flex-wrap:wrap;min-width:0}
-.dot{width:10px;height:10px;border-radius:50%;border:0;padding:0;background:rgba(155,231,184,.28);cursor:pointer;transition:all .35s}.dot.on{background:var(--accent);width:30px;border-radius:6px;box-shadow:0 0 14px rgba(155,231,184,.7)}
-.pill{appearance:none;border:1px solid var(--line);background:var(--glass);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:var(--fg);font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:0 16px;height:46px;border-radius:23px;cursor:pointer;flex:none}
-.bar{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(155,231,184,.12)}.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--leaf),var(--gold));transition:width .8s cubic-bezier(.2,.9,.2,1)}
-.notes{position:absolute;right:max(16px,3vw);bottom:calc(env(safe-area-inset-bottom,0px) + 78px);width:min(26rem,calc(100% - 32px));padding:16px 18px;border:1px solid var(--line);border-radius:16px;background:rgba(6,24,15,.9);font-size:.95rem;line-height:1.5;color:#d3e8da;pointer-events:auto}
-.notes b{font-family:var(--f-mono);font-weight:500;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:6px}
-.loading{position:fixed;inset:0;display:grid;place-items:center;font-family:var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-size:12px;pointer-events:none;transition:opacity .8s}
-.pangti{position:absolute;left:50%;top:calc(env(safe-area-inset-top,0px) + 46px);transform:translateX(-50%);width:min(44rem,calc(100% - 32px));padding:10px 22px 11px;border:1px solid rgba(242,184,75,.45);border-radius:16px;background:rgba(6,24,15,.66);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);text-align:center;pointer-events:auto;box-shadow:0 14px 40px rgba(0,0,0,.4);transition:opacity .5s}
-.pangti .pg{font-family:var(--f-display);font-weight:700;font-size:clamp(1.3rem,2.4vw,1.95rem);line-height:1.4;color:var(--gold);white-space:pre-line;text-wrap:balance}
-.pangti .pm{font-size:clamp(.92rem,1.2vw,1.08rem);line-height:1.4;color:#d3e8da;margin-top:2px}
-.pangti .pa{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:5px}
-.pangti.hero{padding:14px 26px 14px}.pangti.hero .pg{font-size:clamp(1.7rem,3.5vw,2.8rem)}
-.photo{width:134px;height:134px;border-radius:50%;object-fit:cover;border:3px solid var(--accent);box-shadow:0 0 26px rgba(155,231,184,.55);display:block;margin:2px 0 14px}
-.pills{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}
-.pills span{font-size:.95rem;padding:6px 13px;border:1px solid var(--line);border-radius:999px;background:rgba(155,231,184,.08);color:var(--fg)}
-.pills b{width:100%;font-family:var(--f-mono);font-weight:500;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin:6px 0 -2px}
-.certgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:10px;margin-top:12px;max-height:36vh;overflow:auto;padding:2px 4px 2px 2px}
-.cert{appearance:none;border:1px solid var(--line);border-radius:12px;background:rgba(155,231,184,.06);padding:6px;cursor:pointer;display:flex;flex-direction:column;gap:6px;align-items:center;transition:transform .2s}
-.cert:hover{transform:translateY(-3px);background:rgba(155,231,184,.12)}
-.cert img{width:100%;height:74px;object-fit:cover;border-radius:8px;background:#0a2e24}
-.cert span{font-size:.68rem;line-height:1.25;color:var(--muted);text-align:center}
-#lightbox{position:fixed;inset:0;background:rgba(3,10,7,.9);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:grid;place-items:center;z-index:60;padding:24px;pointer-events:auto}
-#lightbox[hidden]{display:none}
-.lbbox{max-width:min(880px,94vw);text-align:center}
-.lbbox img{max-width:100%;max-height:76vh;border-radius:14px;border:1px solid var(--line);box-shadow:0 30px 80px rgba(0,0,0,.6)}
-#lbcap{margin:12px 0 4px;font-size:1.05rem;color:var(--fg)}
-#lbclose{position:absolute;top:18px;right:22px}
-@media (max-width:760px){
-  .pangti{top:calc(env(safe-area-inset-top,0px) + 42px);padding:7px 12px 8px;border-radius:12px}.pangti .pg{font-size:1.05rem;line-height:1.4}.pangti .pm{font-size:.78rem}.pangti .pa{font-size:10px;margin-top:3px}.pangti.hero .pg{font-size:1.25rem}
-  .card{width:calc(100% - 32px);left:16px!important;right:16px!important;top:auto;bottom:calc(env(safe-area-inset-bottom,0px) + 74px);max-height:42vh;padding:18px 18px 16px;transform:translateY(30px)!important}
-  .card.on{transform:translateY(0)!important}
-  .card h2{font-size:1.8rem}.card p{font-size:1.02rem}.card li{font-size:1.02rem}.stat strong{font-size:2.2rem}
-  .hint{display:none}.pill .lbl{display:none}.dots{gap:5px}.dot{width:8px;height:8px}.dot.on{width:20px}
-  .btn,.pill{width:42px;height:42px;padding:0}
-  .notes{bottom:calc(env(safe-area-inset-bottom,0px) + 70px)}
-  .certgrid{max-height:26vh}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{background:var(--navy);color:var(--ivory);font-family:var(--sans);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--gold);color:var(--navy)}
+img{max-width:100%;display:block}
+a{color:var(--gold2)}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+section{padding:110px 0;position:relative}
+/* ---------- nav ---------- */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .3s,box-shadow .3s,padding .3s;padding:20px 0;background:linear-gradient(rgba(10,22,40,.85),rgba(10,22,40,.55) 70%,transparent)}
+nav.scrolled{background:rgba(10,22,40,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line2),0 10px 30px rgba(0,0,0,.35);padding:12px 0}
+.nav-in{display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ivory)}
+.mono{width:44px;height:44px;border:1.5px solid var(--gold);border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-weight:700;font-size:1.15rem;color:var(--gold);background:rgba(201,162,39,.08)}
+.brand b{font-family:var(--serif);font-weight:700;letter-spacing:.02em;font-size:1.05rem}
+.links{display:flex;gap:28px;list-style:none}
+.links a{color:var(--muted);text-decoration:none;font-size:.86rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;position:relative;transition:color .25s}
+.links a::after{content:"";position:absolute;left:0;bottom:-6px;height:1.5px;width:0;background:var(--gold);transition:width .3s}
+.links a:hover,.links a.active{color:var(--gold2)}
+.links a:hover::after,.links a.active::after{width:100%}
+.burger{display:none;background:none;border:1px solid var(--line);border-radius:10px;color:var(--gold);font-size:1.3rem;width:44px;height:44px;cursor:pointer}
+/* ---------- hero ---------- */
+#hero{min-height:100svh;display:flex;align-items:center;padding:140px 0 90px;overflow:hidden;position:relative}
+#stars{position:absolute;inset:0;width:100%;height:100%;cursor:grab;touch-action:pan-y}
+#stars:active{cursor:grabbing}
+.hero-in{position:relative;z-index:2;pointer-events:none;width:100%}
+.hero-in a,.hero-in button{pointer-events:auto}
+.kicker{font-size:.8rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+h1{font-family:var(--serif);font-weight:800;font-size:clamp(2.9rem,7vw,5.4rem);line-height:1.04;letter-spacing:-.01em;margin-bottom:14px}
+h1 .amp{color:var(--gold);font-style:italic}
+.type-line{font-size:clamp(1.15rem,2.4vw,1.6rem);color:var(--muted);margin-bottom:10px;min-height:2.6em}
+.type-line .tw{color:var(--gold2);font-weight:600}
+.caret{display:inline-block;width:2px;height:1.1em;background:var(--gold);vertical-align:-2px;margin-left:2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.hero-sub{max-width:34rem;color:var(--muted);font-size:1.06rem;margin-bottom:34px}
+.cta-row{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:56px}
+.btn{display:inline-block;text-decoration:none;font-weight:600;font-size:.95rem;letter-spacing:.04em;padding:15px 34px;border-radius:999px;transition:transform .25s,box-shadow .25s,background .25s;cursor:pointer;border:1px solid var(--gold)}
+.btn-gold{background:linear-gradient(135deg,var(--gold2),var(--gold));color:#1a1405;box-shadow:0 8px 28px rgba(201,162,39,.35)}
+.btn-gold:hover{transform:translateY(-3px);box-shadow:0 14px 36px rgba(201,162,39,.45)}
+.btn-ghost{background:transparent;color:var(--gold2)}
+.btn-ghost:hover{transform:translateY(-3px);background:rgba(201,162,39,.1)}
+.stats{display:flex;gap:0;flex-wrap:wrap;border-top:1px solid var(--line2);padding-top:30px;max-width:640px}
+.stat{flex:1 1 140px;padding-right:20px}
+.stat strong{display:block;font-family:var(--serif);font-size:2.6rem;color:var(--gold);font-variant-numeric:tabular-nums;line-height:1.1}
+.stat span{font-size:.85rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.scroll-hint{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);color:var(--muted);font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;z-index:2;animation:float 2.6s ease-in-out infinite}
+@keyframes float{50%{transform:translate(-50%,8px)}}
+/* ---------- section headers ---------- */
+.sec-head{margin-bottom:60px;max-width:720px}
+.sec-head h2{font-family:var(--serif);font-weight:700;font-size:clamp(2rem,4.4vw,3rem);line-height:1.12;margin:14px 0 12px}
+.sec-head h2 em{font-style:italic;color:var(--gold)}
+.sec-head p{color:var(--muted);font-size:1.05rem}
+.gold-rule{width:72px;height:2px;background:linear-gradient(90deg,var(--gold),transparent);margin-top:18px}
+/* ---------- reveal ---------- */
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.12s}.reveal.d2{transition-delay:.24s}.reveal.d3{transition-delay:.36s}
+/* ---------- about ---------- */
+.about-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:70px;align-items:center}
+.photo-stack{position:relative;min-height:480px}
+.frame{position:absolute;border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 70px rgba(0,0,0,.5);transform-style:preserve-3d;transition:transform .35s ease,box-shadow .35s ease;background:var(--card)}
+.frame img{width:100%;height:100%;object-fit:cover}
+.frame .cap{position:absolute;left:0;right:0;bottom:0;padding:26px 18px 14px;font-size:.82rem;letter-spacing:.08em;color:var(--ivory);background:linear-gradient(transparent,rgba(6,12,24,.85))}
+.frame.f1{width:min(78%,340px);aspect-ratio:3/4;top:0;left:0;transform:rotate(-3deg)}
+.frame.f2{width:min(64%,280px);aspect-ratio:3/4;bottom:0;right:0;transform:rotate(2.5deg)}
+.frame.f1::before,.frame.f2::before{content:"";position:absolute;inset:10px;border:1px solid rgba(201,162,39,.5);border-radius:12px;z-index:2;pointer-events:none}
+.frame:hover{transform:rotate(0) scale(1.03)!important;box-shadow:0 40px 90px rgba(0,0,0,.6),0 0 0 1px var(--gold);z-index:3}
+.about-txt p{color:var(--muted);margin-bottom:18px;font-size:1.05rem}
+.about-txt p strong{color:var(--ivory)}
+.about-facts{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:28px 0}
+.fact{border:1px solid var(--line2);border-radius:12px;padding:14px 16px;background:rgba(201,162,39,.04)}
+.fact b{display:block;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.fact span{color:var(--ivory);font-weight:500}
+/* ---------- gallery ---------- */
+#gallery{background:linear-gradient(var(--navy),var(--navy2) 30%,var(--navy))}
+.g-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.g-item{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:3/4;border:1px solid var(--line2);cursor:pointer;transform-style:preserve-3d;background:var(--card)}
+.g-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.g-item::after{content:attr(data-cap);position:absolute;left:0;right:0;bottom:0;padding:30px 16px 14px;font-size:.85rem;font-weight:600;letter-spacing:.04em;background:linear-gradient(transparent,rgba(6,12,24,.9));transform:translateY(8px);opacity:.92}
+.g-item:hover img{transform:scale(1.08)}
+.g-item:hover{border-color:var(--gold);box-shadow:0 24px 60px rgba(0,0,0,.5),0 0 0 1px var(--gold)}
+/* ---------- skills ---------- */
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px}
+.bar-row{margin-bottom:26px}
+.bar-row .lbl{display:flex;justify-content:space-between;font-weight:600;margin-bottom:10px;font-size:.98rem}
+.bar-row .lbl i{font-style:normal;color:var(--gold);font-variant-numeric:tabular-nums}
+.track{height:9px;border-radius:99px;background:rgba(201,162,39,.14);overflow:hidden}
+.fill{height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,#8a6d1c,var(--gold2));transition:width 1.4s cubic-bezier(.2,.7,.2,1);box-shadow:0 0 12px rgba(201,162,39,.5)}
+.tagbox h3{font-family:var(--serif);font-size:1.35rem;margin-bottom:16px;color:var(--gold2)}
+.pills{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px}
+.pills span{font-size:.9rem;padding:8px 18px;border:1px solid var(--line);border-radius:999px;color:var(--ivory);background:rgba(201,162,39,.06);transition:all .25s}
+.pills span:hover{background:rgba(201,162,39,.18);border-color:var(--gold);transform:translateY(-2px)}
+/* ---------- timeline ---------- */
+.tl{position:relative;margin-left:8px;padding-left:44px}
+.tl::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--gold),rgba(201,162,39,.1))}
+.tl-item{position:relative;margin-bottom:34px}
+.tl-item::before{content:"";position:absolute;left:-43px;top:6px;width:16px;height:16px;border-radius:50%;background:var(--navy);border:3px solid var(--gold);box-shadow:0 0 14px rgba(201,162,39,.6)}
+.tl-card{background:var(--card);border:1px solid var(--line2);border-radius:16px;padding:26px 28px;transition:transform .3s,border-color .3s,box-shadow .3s}
+.tl-card:hover{transform:translateX(8px);border-color:var(--gold);box-shadow:0 18px 44px rgba(0,0,0,.4)}
+.tl-date{font-size:.76rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.tl-card h3{font-family:var(--serif);font-size:1.4rem;margin:8px 0 4px}
+.tl-card .org{color:var(--muted);font-size:.95rem;margin-bottom:8px}
+.tl-card p{color:var(--muted);font-size:.98rem}
+.exp-grid{display:grid;grid-template-columns:1.25fr .9fr;gap:60px;align-items:start}
+.exp-photo{position:sticky;top:110px}
+.exp-photo .frame{position:relative;width:100%;aspect-ratio:3/4;transform:rotate(1.5deg)}
+/* ---------- projects ---------- */
+.p-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
+.p-card{background:var(--card);border:1px solid var(--line2);border-radius:18px;padding:34px 32px;transform-style:preserve-3d;transition:border-color .3s,box-shadow .3s;position:relative;overflow:hidden}
+.p-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),transparent)}
+.p-card:hover{border-color:var(--gold);box-shadow:0 26px 60px rgba(0,0,0,.5)}
+.p-card .p-date{font-size:.76rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.p-card h3{font-family:var(--serif);font-size:1.55rem;margin:10px 0 12px;transform:translateZ(30px)}
+.p-card p{color:var(--muted);font-size:.99rem;transform:translateZ(20px)}
+.p-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;transform:translateZ(40px)}
+.p-tags span{font-size:.76rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gold2);border:1px solid var(--line);border-radius:999px;padding:5px 14px;background:rgba(201,162,39,.07)}
+/* ---------- publications / achievements ---------- */
+.pub{border-left:3px solid var(--gold);background:var(--card);border-radius:0 16px 16px 0;padding:26px 30px;margin-bottom:22px;border-top:1px solid var(--line2);border-right:1px solid var(--line2);border-bottom:1px solid var(--line2);transition:transform .3s}
+.pub:hover{transform:translateX(8px)}
+.pub .p-date{font-size:.76rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.pub h3{font-family:var(--serif);font-size:1.35rem;margin:8px 0 6px;font-weight:700}
+.pub p{color:var(--muted);font-size:.97rem}
+.ach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.ach{background:var(--card);border:1px solid var(--line2);border-radius:16px;padding:30px 26px;text-align:center;transition:all .3s}
+.ach:hover{border-color:var(--gold);transform:translateY(-6px);box-shadow:0 22px 50px rgba(0,0,0,.45)}
+.ach .medal{font-size:2.2rem;margin-bottom:12px}
+.ach h3{font-family:var(--serif);font-size:1.2rem;margin-bottom:8px}
+.ach p{color:var(--muted);font-size:.93rem}
+/* ---------- certificates ---------- */
+#certificates{background:var(--navy2)}
+.c-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:20px}
+.c-item{background:var(--card);border:1px solid var(--line2);border-radius:14px;overflow:hidden;cursor:pointer;transition:all .3s;padding:0;text-align:left;color:var(--ivory);font-family:var(--sans);width:100%}
+.c-item img{width:100%;height:150px;object-fit:cover;transition:transform .5s}
+.c-item span{display:block;padding:13px 15px;font-size:.86rem;font-weight:600;line-height:1.4}
+.c-item:hover{transform:translateY(-6px);border-color:var(--gold);box-shadow:0 20px 46px rgba(0,0,0,.5)}
+.c-item:hover img{transform:scale(1.05)}
+/* ---------- contact ---------- */
+#contact{background:linear-gradient(var(--navy2),#070f1e)}
+.contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:70px;align-items:center}
+.c-photo .frame{position:relative;width:min(100%,340px);aspect-ratio:3/4;margin:0 auto;transform:rotate(-2deg)}
+.link-btns{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:30px}
+.lb-btn{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--ivory);border:1px solid var(--gold);border-radius:14px;padding:16px 20px;font-weight:600;font-size:.95rem;transition:all .3s;background:rgba(201,162,39,.05)}
+.lb-btn small{display:block;font-weight:400;color:var(--muted);font-size:.78rem;word-break:break-all}
+.lb-btn:hover{background:rgba(201,162,39,.16);transform:translateY(-3px);box-shadow:0 14px 34px rgba(0,0,0,.4)}
+.lb-btn .ic{font-size:1.4rem;flex:none}
+footer{border-top:1px solid var(--line2);padding:44px 0;text-align:center;color:var(--muted);font-size:.9rem}
+footer .fq{font-family:var(--serif);font-style:italic;font-size:1.25rem;color:var(--gold2);margin-bottom:10px}
+/* ---------- lightbox ---------- */
+#lightbox{position:fixed;inset:0;z-index:100;background:rgba(4,8,17,.93);backdrop-filter:blur(10px);display:grid;place-items:center;padding:30px;opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s}
+#lightbox.open{opacity:1;visibility:visible}
+.lb-box{max-width:min(900px,94vw);text-align:center;transform:scale(.94);transition:transform .35s}
+#lightbox.open .lb-box{transform:none}
+.lb-box img{max-width:100%;max-height:78vh;border-radius:14px;border:1px solid var(--gold);box-shadow:0 40px 100px rgba(0,0,0,.7);margin:0 auto}
+#lbcap{margin:16px 0 4px;font-size:1.02rem;color:var(--ivory)}
+#lbclose{position:absolute;top:20px;right:26px;background:none;border:1px solid var(--gold);color:var(--gold);width:48px;height:48px;border-radius:50%;font-size:1.3rem;cursor:pointer;transition:all .25s}
+#lbclose:hover{background:var(--gold);color:var(--navy)}
+/* ---------- responsive ---------- */
+@media(max-width:960px){
+.links{position:fixed;top:0;right:-100%;width:min(78vw,320px);height:100svh;background:rgba(10,22,40,.97);backdrop-filter:blur(16px);flex-direction:column;justify-content:center;align-items:center;gap:30px;transition:right .4s cubic-bezier(.2,.7,.2,1);border-left:1px solid var(--line2)}
+.links.open{right:0}
+.burger{display:block}
+.about-grid,.skills-grid,.exp-grid,.contact-grid{grid-template-columns:1fr;gap:50px}
+.g-grid{grid-template-columns:repeat(2,1fr)}
+.p-grid{grid-template-columns:1fr}
+.ach-grid{grid-template-columns:1fr}
+.exp-photo{position:static;max-width:420px}
+section{padding:80px 0}
+.photo-stack{min-height:420px}
 }
-@media (prefers-reduced-motion:reduce){.card,.card.on{transition-duration:.01s!important;transition-delay:0s!important}}
+@media (prefers-reduced-motion:reduce){
+html{scroll-behavior:auto}
+.reveal{opacity:1;transform:none;transition:none}
+.fill{transition:none}
+.caret{animation:none}
+.scroll-hint{animation:none}
+}
 </style>
-<canvas id="gl" aria-label="Interactive 3D portfolio of Sandeep Kumar Chaurasiya"></canvas>
-<div class="ui" id="ui">
-  <div class="top"><div class="brand"><i></i><span>Sandeep Kumar Chaurasiya</span></div><div class="r"><button class="timer" id="timer" title="Click to reset the timer">00:00</button><span class="count" id="count">01 / 11</span></div></div>
-  <div class="pangti" id="pangti" aria-live="polite"><div class="pg"></div><div class="pm"></div><div class="pa"></div></div>
-  <div id="cards"></div>
-  <div class="notes" id="notes" hidden></div>
-  <div class="bottom"><button class="btn" id="prev" aria-label="Previous slide">←</button><div class="dots" id="dots"></div><button class="pill" id="notesBtn" aria-pressed="false">Notes<span class="lbl"> · N</span></button><button class="pill" id="fsBtn" aria-label="Full screen">⤢<span class="lbl"> · F</span></button><button class="btn" id="next" aria-label="Next slide">→</button></div>
-  <div class="bar"><i id="barfill"></i></div>
+</head>
+<body>
+<nav id="nav"><div class="wrap nav-in">
+<a class="brand" href="#hero"><span class="mono">SC</span><b>Sandeep Kumar Chaurasiya</b></a>
+<ul class="links" id="links">
+<li><a href="#about">About</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#skills">Skills</a></li><li><a href="#experience">Experience</a></li><li><a href="#projects">Projects</a></li><li><a href="#certificates">Certificates</a></li><li><a href="#contact">Contact</a></li>
+</ul>
+<button class="burger" id="burger" aria-label="Menu">☰</button>
+</div></nav>
+
+<header id="hero">
+<canvas id="stars" aria-label="Interactive 3D portrait of Sandeep Kumar Chaurasiya — drag to rotate"></canvas>
+<div class="wrap hero-in">
+<p class="kicker reveal">Portfolio · 2026</p>
+<h1 class="reveal d1">Sandeep Kumar<br><span class="amp">Chaurasiya</span></h1>
+<p class="type-line reveal d2">I'm an <span class="tw" id="tw"></span><span class="caret"></span></p>
+<p class="hero-sub reveal d2">MA Education candidate at Lovely Professional University, blending instructional design, data analysis, and people operations to build better learning experiences.</p>
+<div class="cta-row reveal d3"><a class="btn btn-gold" href="#projects">View My Work</a><a class="btn btn-ghost" href="#contact">Contact Me</a></div>
+<div class="stats reveal d3">
+<div class="stat"><strong><span class="count" data-to="5" data-suffix="+">0</span></strong><span>Professional Roles</span></div>
+<div class="stat"><strong><span class="count" data-to="16">0</span></strong><span>Certificates</span></div>
+<div class="stat"><strong><span class="count" data-to="3">0</span></strong><span>Publications</span></div>
+<div class="stat"><strong><span class="count" data-to="7.8" data-dec="1">0</span></strong><span>CGPA</span></div>
 </div>
-<div class="lightbox" id="lightbox" hidden><div class="lbbox"><img id="lbimg" alt="Photo full view"><div id="lbcap"></div></div><button class="btn" id="lbclose" aria-label="Close">✕</button></div>
-<div class="loading" id="loading">Loading 3D world…</div>
+</div>
+<div class="scroll-hint">Drag the portrait · Scroll</div>
+</header>
+
+<section id="about"><div class="wrap">
+<div class="sec-head reveal"><p class="kicker">About me</p><h2>Educator, <em>researcher</em> &amp; builder</h2><div class="gold-rule"></div></div>
+<div class="about-grid">
+<div class="photo-stack reveal">
+<div class="frame f1" data-cap="Akal Academy Baru Sahib"><img id="aboutImg1" alt="Sandeep Kumar Chaurasiya at his office"><div class="cap" data-cap>Akal Academy Baru Sahib</div></div>
+<div class="frame f2" data-cap="Sandeep Kumar Chaurasiya"><img id="aboutImg2" alt="Sandeep Kumar Chaurasiya"><div class="cap">Sandeep Kumar Chaurasiya</div></div>
+</div>
+<div class="about-txt reveal d1">
+<p>Education professional and <strong>MA Education candidate at Lovely Professional University</strong> with hands-on experience across instructional design, teaching assistance, HR operations, and research data analysis (SPSS, JAMOVI).</p>
+<p><strong>Published researcher and book-chapter author</strong> who builds practical learning solutions — from course storyboards to early-warning system concepts.</p>
+<div class="about-facts">
+<div class="fact"><b>Base</b><span>Pratapgarh, UP, India</span></div>
+<div class="fact"><b>Now</b><span>MA Education, Lovely Professional University</span></div>
+<div class="fact"><b>Focus</b><span>Admin · HR · Instructional Design</span></div>
+<div class="fact"><b>Open to</b><span>Full-time roles &amp; collaborations</span></div>
+</div>
+<a class="btn btn-ghost" href="#experience">My Journey ↓</a>
+</div>
+</div>
+</div></section>
+
+<section id="gallery"><div class="wrap">
+<div class="sec-head reveal"><p class="kicker">Photo gallery</p><h2>In the <em>office</em></h2><p>A walk through my workspace at Akal Academy Baru Sahib — where administration, records and daily coordination come together.</p><div class="gold-rule"></div></div>
+<div class="g-grid" id="ggrid"></div>
+</div></section>
+
+<section id="skills"><div class="wrap">
+<div class="sec-head reveal"><p class="kicker">What I bring</p><h2>Skills &amp; <em>strengths</em></h2><p>A mix of technical craft and professional habits, built through internships, research and campus roles.</p><div class="gold-rule"></div></div>
+<div class="skills-grid">
+<div class="reveal"><div id="bars"></div></div>
+<div class="tagbox reveal d1">
+<h3>Professional strengths</h3>
+<div class="pills"><span>Communication</span><span>Problem-Solving</span><span>Teamwork</span><span>Project Management</span><span>Adaptability</span><span>Leadership</span></div>
+<h3>Also in the toolkit</h3>
+<div class="pills"><span>Adobe Express</span><span>Google Workspace</span><span>Digital Productivity</span><span>Web Development</span></div>
+</div>
+</div>
+</div></section>
+
+<section id="experience"><div class="wrap">
+<div class="sec-head reveal"><p class="kicker">Where I have worked</p><h2>Experience</h2><p>Five roles across education, HR and student mentoring — each one adding a new pillar.</p><div class="gold-rule"></div></div>
+<div class="exp-grid">
+<div class="tl reveal" id="expTl"></div>
+<div class="exp-photo reveal d1"><div class="frame" data-tilt><img id="expImg" alt="Sandeep Kumar Chaurasiya at his admin desk"><div class="cap">Admin desk, Akal Academy Baru Sahib</div></div></div>
+</div>
+</div></section>
+
+<section id="projects"><div class="wrap">
+<div class="sec-head reveal"><p class="kicker">Selected work</p><h2>Projects</h2><p>Ideas turned into structured, working outputs.</p><div class="gold-rule"></div></div>
+<div class="p-grid">
+<div class="p-card reveal" data-tilt><p class="p-date">Sep 2025</p><h3>Early Warning System for Natural Disasters</h3><p>MSME Hackathon concept with flowcharts for vulnerable coastal and hilly regions — an end-to-end alert pipeline from detection to community response.</p><div class="p-tags"><span>Hackathon</span><span>Concept</span><span>Systems Design</span></div></div>
+<div class="p-card reveal d1" data-tilt><p class="p-date">Sep – Oct 2024</p><h3>Social Media Addiction &amp; Academic Achievement</h3><p>Research study on addiction, social support and procrastination effects on student well-being — from literature review to data instruments.</p><div class="p-tags"><span>Research</span><span>Data Analysis</span><span>Education</span></div></div>
+</div>
+</div></section>
+
+<section id="publications"><div class="wrap">
+<div class="sec-head reveal"><p class="kicker">Research</p><h2>Publications</h2><p>Published, peer-recognised work in education and technology.</p><div class="gold-rule"></div></div>
+<div class="reveal"><div class="pub"><p class="p-date">May 2026</p><h3>"Educational Leadership and Student Psychological Wellbeing"</h3><p>JAAFR, Vol. 4, Issue 5 · <a href="https://doi.org/10.56975/jaafr.v4i5.510170" target="_blank" rel="noopener">doi.org/10.56975/jaafr.v4i5.510170</a></p></div></div>
+<div class="reveal d1"><div class="pub"><p class="p-date">Sep 2024</p><h3>"Bloody Letter to the President"</h3><p>Chapter in <em>Prisms of Youth</em>.</p></div></div>
+<div class="reveal d2"><div class="pub"><p class="p-date">Sep 2025</p><h3><em>AI for Industry, Education and Research</em></h3><p>Book chapter, Bhumi Publisher.</p></div></div>
+</div></section>
+
+<section id="achievements"><div class="wrap">
+<div class="sec-head reveal"><p class="kicker">Recognition</p><h2>Achievements</h2><p>Moments that stood out.</p><div class="gold-rule"></div></div>
+<div class="ach-grid">
+<div class="ach reveal"><div class="medal">🎤</div><h3>National Conference Participant</h3><p>Aug 2025 · Sustainable Development Goals</p></div>
+<div class="ach reveal d1"><div class="medal">🥈</div><h3>Second Prize, InnoTek 2025</h3><p>Inter-college · LPU Dept. of Education</p></div>
+<div class="ach reveal d2"><div class="medal">🥇</div><h3>First Prize, Infographic Design</h3><p>EduRev · LPU Dept. of Education</p></div>
+</div>
+</div></section>
+
+<section id="education"><div class="wrap">
+<div class="sec-head reveal"><p class="kicker">Academics</p><h2>Education</h2><p>Each step a little higher than the last.</p><div class="gold-rule"></div></div>
+<div class="tl reveal" id="eduTl"></div>
+</div></section>
+
+<section id="certificates"><div class="wrap">
+<div class="sec-head reveal"><p class="kicker">Credentials</p><h2>16 <em>certificates</em></h2><p>Every certificate, verified — click any thumbnail to view it full size.</p><div class="gold-rule"></div></div>
+<div class="c-grid reveal" id="cgrid"></div>
+</div></section>
+
+<section id="contact"><div class="wrap">
+<div class="sec-head reveal"><p class="kicker">Get in touch</p><h2>Let's <em>work together</em></h2><p>Open to roles in education, HR, instructional design and data analysis — and to collaborations of any kind.</p><div class="gold-rule"></div></div>
+<div class="contact-grid">
+<div class="c-photo reveal"><div class="frame" data-tilt><img id="contactImg" alt="Sandeep Kumar Chaurasiya"><div class="cap">Sandeep Kumar Chaurasiya</div></div></div>
+<div class="reveal d1">
+<div class="link-btns">
+<a class="lb-btn" href="mailto:Sandeepkumar.2024@lpu.in"><span class="ic">✉</span><span>Email<small>Sandeepkumar.2024@lpu.in</small></span></a>
+<a class="lb-btn" href="tel:+917814169005"><span class="ic">☎</span><span>Phone<small>+91-7814169005</small></span></a>
+<a class="lb-btn" href="https://www.linkedin.com/in/sandeepkumarchaurasiya" target="_blank" rel="noopener"><span class="ic">in</span><span>LinkedIn<small>linkedin.com/in/sandeepkumarchaurasiya</small></span></a>
+<a class="lb-btn" href="https://github.com/akalacademyschool" target="_blank" rel="noopener"><span class="ic">⌨</span><span>GitHub<small>github.com/akalacademyschool</small></span></a>
+<a class="lb-btn" href="https://www.instagram.com/sandeep.lpu" target="_blank" rel="noopener"><span class="ic">◈</span><span>Instagram<small>@sandeep.lpu</small></span></a>
+<a class="lb-btn" href="https://akalacademyschool.github.io" target="_blank" rel="noopener"><span class="ic">🌐</span><span>Portfolio<small>akalacademyschool.github.io</small></span></a>
+</div>
+</div>
+</div>
+</div></section>
+
+<footer><div class="wrap">
+<p class="fq">"The future depends on what you do today." — Mahatma Gandhi</p>
+<p>© 2026 Sandeep Kumar Chaurasiya · Crafted with dedication</p>
+</div></footer>
+
+<div id="lightbox" role="dialog" aria-label="Photo viewer"><button id="lbclose" aria-label="Close">✕</button><div class="lb-box"><img id="lbimg" alt="Enlarged photo"><div id="lbcap"></div></div></div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="assets/certs/data-1.js"></script>
 <script src="assets/certs/data-2.js"></script>
@@ -108,295 +343,148 @@ body{background:radial-gradient(120% 90% at 50% 20%,var(--bg2),var(--bg) 70%);ba
 <script src="assets/photos/data-7.js"></script>
 <script>
 (function(){
-if(typeof THREE==='undefined'){document.getElementById('loading').textContent='3D engine could not load. Check your connection and reload.';return}
-const RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
-const STEP=38;
-const COL={deep:0x0f6b4a,green:0x1f8f5f,leaf:0x3fae74,lime:0x7ac96b,mint:0x9be7b8,pale:0xc8e08a,gold:0xf2b84b,coral:0xee6a55,ink:0x0a2e24,white:0xf4fbf6,slate:0x3a4a44};
-const NAVY=0x0a2540,GOLD=0xc9a227;
-const BLOCK=['#0f6b4a','#1f8f5f','#3fae74','#7ac96b','#c8d94a','#f2b84b'];
+"use strict";
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const P=window.PHOTOS||[],CIMGS=window.CERT_IMGS||{};
+const ph=i=>P[i]||'';
+/* ---------- photo wiring (defensive) ---------- */
+function setImg(id,src){const el=document.getElementById(id);if(!el)return;if(src)el.src=src;else el.closest('.frame').style.display='none'}
+setImg('aboutImg1',ph(0));setImg('aboutImg2',ph(6));setImg('expImg',ph(1));setImg('contactImg',ph(5));
 
-/* ---------- renderer / scene ---------- */
-const canvas=document.getElementById('gl');
+/* ---------- nav ---------- */
+const nav=document.getElementById('nav'),burger=document.getElementById('burger'),links=document.getElementById('links');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40),{passive:true});
+burger.onclick=()=>links.classList.toggle('open');
+links.querySelectorAll('a').forEach(a=>a.onclick=()=>links.classList.remove('open'));
+const secs=[...document.querySelectorAll('section[id],header[id]')];
+const navAs=[...links.querySelectorAll('a')];
+const so=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){navAs.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}})},{rootMargin:'-40% 0px -55% 0px'});
+secs.forEach(s=>so.observe(s));
+
+/* ---------- THREE hero: particles + draggable portrait ---------- */
+const canvas=document.getElementById('stars');
+if(typeof THREE!=='undefined'){
 const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});
-renderer.setPixelRatio(Math.min(devicePixelRatio||1,2));
-renderer.outputEncoding=THREE.sRGBEncoding;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.0;
-renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;
-const scene=new THREE.Scene();scene.fog=new THREE.FogExp2(0x06180f,0.012);
-const camera=new THREE.PerspectiveCamera(38,1,0.1,400);
-scene.add(new THREE.HemisphereLight(0xcdf5de,0x0b2a1d,0.6));
-const key=new THREE.DirectionalLight(0xffffff,1.15);key.position.set(8,14,9);key.castShadow=true;key.shadow.mapSize.set(2048,2048);
-Object.assign(key.shadow.camera,{left:-14,right:14,top:14,bottom:-14,near:1,far:50});key.shadow.bias=-0.0005;scene.add(key);scene.add(key.target);
-const rimA=new THREE.PointLight(0x9be7b8,.9,40);scene.add(rimA);const rimB=new THREE.PointLight(0xf2b84b,.7,40);scene.add(rimB);
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+const scene=new THREE.Scene();
+const camera=new THREE.PerspectiveCamera(45,1,0.1,100);camera.position.set(0,0.4,9);
+scene.add(new THREE.AmbientLight(0xffffff,0.75));
+const key=new THREE.DirectionalLight(0xffe9b8,0.9);key.position.set(4,6,8);scene.add(key);
+const rim=new THREE.DirectionalLight(0xc9a227,0.5);rim.position.set(-6,-2,4);scene.add(rim);
+/* particles */
+const N=RM?0:650,pos=new Float32Array(N*3),col=new Float32Array(N*3),spd=[];
+const pal=[new THREE.Color(0xc9a227),new THREE.Color(0xf4efe4),new THREE.Color(0x5a6f95),new THREE.Color(0xe8c95a)];
+for(let i=0;i<N;i++){pos[i*3]=(Math.random()-0.5)*26;pos[i*3+1]=(Math.random()-0.5)*15;pos[i*3+2]=(Math.random()-0.5)*10-2;const c=pal[i%4];col[i*3]=c.r;col[i*3+1]=c.g;col[i*3+2]=c.b;spd.push(0.1+Math.random()*0.35)}
+const pg=new THREE.BufferGeometry();pg.setAttribute('position',new THREE.BufferAttribute(pos,3));pg.setAttribute('color',new THREE.BufferAttribute(col,3));
+const pts=new THREE.Points(pg,new THREE.PointsMaterial({size:0.09,vertexColors:true,transparent:true,opacity:0.8,depthWrite:false}));
+scene.add(pts);
+/* portrait group */
+const pg3=new THREE.Group();scene.add(pg3);
+let portrait=null;
+if(ph(4)){
+const tex=new THREE.TextureLoader().load(ph(4));tex.encoding=THREE.sRGBEncoding;
+const frame=new THREE.Mesh(new THREE.PlaneGeometry(3.5,4.55),new THREE.MeshStandardMaterial({color:0xc9a227,roughness:0.35,metalness:0.7}));
+const face=new THREE.Mesh(new THREE.PlaneGeometry(3.28,4.33),new THREE.MeshStandardMaterial({map:tex,roughness:0.85}));
+face.position.z=0.02;pg3.add(frame);pg3.add(face);
+const ring=new THREE.Mesh(new THREE.TorusGeometry(2.75,0.055,20,120),new THREE.MeshStandardMaterial({color:0xc9a227,roughness:0.3,metalness:0.85}));
+ring.position.z=-0.15;pg3.add(ring);
+/* orbiting gold dots */
+const dots=[];for(let i=0;i<14;i++){const d=new THREE.Mesh(new THREE.SphereGeometry(0.055,12,12),new THREE.MeshBasicMaterial({color:0xe8c95a}));pg3.add(d);dots.push(d)}
+pg3.userData.dots=dots;pg3.userData.ring=ring;
+portrait=pg3;
+}
+function layout(){const w=canvas.clientWidth,h=canvas.clientHeight;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();
+if(portrait){if(w<900){portrait.position.set(0,2.6,0);portrait.scale.setScalar(0.62)}else{portrait.position.set(3.1,0.1,0);portrait.scale.setScalar(1)}}}
+layout();addEventListener('resize',layout);
+/* drag to rotate */
+let drag=false,lx=0,ly=0,ry=0,rx=0,vy=0;
+canvas.addEventListener('pointerdown',e=>{drag=true;lx=e.clientX;ly=e.clientY;canvas.setPointerCapture(e.pointerId)});
+canvas.addEventListener('pointermove',e=>{if(!drag)return;const dx=e.clientX-lx,dy=e.clientY-ly;lx=e.clientX;ly=e.clientY;ry+=dx*0.008;rx+=dy*0.004;rx=Math.max(-0.5,Math.min(0.5,rx));vy=dx*0.008});
+addEventListener('pointerup',()=>drag=false);
+/* mouse parallax */
+let mx=0,my=0;
+addEventListener('pointermove',e=>{mx=(e.clientX/innerWidth-0.5);my=(e.clientY/innerHeight-0.5)},{passive:true});
+const clock=new THREE.Clock();
+function tick(){requestAnimationFrame(tick);const dt=Math.min(clock.getDelta(),0.05)||0.016,t=clock.getElapsedTime();
+if(!RM&&N){const a=pg.attributes.position.array;for(let i=0;i<N;i++){a[i*3+1]+=spd[i]*dt;if(a[i*3+1]>7.5)a[i*3+1]=-7.5}pg.attributes.position.needsUpdate=true}
+if(portrait){if(!drag&&!RM){ry+=0.0035;vy*=0.95;ry+=vy;vy*=0.9}else if(!RM){vy*=0.94;ry+=vy}
+portrait.rotation.y+=(ry-portrait.rotation.y)*0.12;portrait.rotation.x+=(rx-portrait.rotation.x)*0.12;
+portrait.position.y+=( (canvas.clientWidth<900?2.6:0.1) + Math.sin(t*1.2)*0.12 - portrait.position.y)*0.06;
+const ds=portrait.userData.dots;for(let i=0;i<ds.length;i++){const an=t*0.5+i/ds.length*Math.PI*2;ds[i].position.set(Math.cos(an)*2.75,Math.sin(an)*2.75,-0.15)}
+portrait.userData.ring.rotation.z=t*0.15}
+camera.position.x+=((mx*0.7)-camera.position.x)*0.04;camera.position.y+=((0.4-my*0.7)-camera.position.y)*0.04;camera.lookAt(portrait?portrait.position.x*0.35:0,0.4,0);
+renderer.render(scene,camera)}
+if(RM){layout();renderer.render(scene,camera)}else tick();
+}
 
-/* ---------- helpers ---------- */
-const mat=(c,r=.38,m=.08)=>new THREE.MeshStandardMaterial({color:c,roughness:r,metalness:m});
-function shadowize(o){o.traverse(m=>{if(m.isMesh){m.castShadow=true;m.receiveShadow=true}})}
-function canvasTex(text,w,h,bg,fg,size,font='Bricolage Grotesque'){const c=document.createElement('canvas');const m=c.getContext('2d');
-  m.font=`800 ${size}px "${font}","Segoe UI",Arial,sans-serif`;m.textAlign='center';m.textBaseline='middle';
-  const lines=String(text).split('\n');let tw=w;lines.forEach(l=>{tw=Math.max(tw,m.measureText(l).width+size*.8)});
-  c.width=Math.ceil(tw);c.height=h;const x=c.getContext('2d');
-  if(bg){x.fillStyle=bg;x.fillRect(0,0,c.width,c.height)}x.fillStyle=fg;x.font=`800 ${size}px "${font}","Segoe UI",Arial,sans-serif`;x.textAlign='center';x.textBaseline='middle';
-  lines.forEach((l,i)=>x.fillText(l,c.width/2,h/2+(i-(lines.length-1)/2)*size*1.08));
-  const t=new THREE.CanvasTexture(c);t.encoding=THREE.sRGBEncoding;t.anisotropy=8;return t}
-function sprite(text,w=3.6,h=.9,fg='#e9f6ee',size=84,bg=null){const t=canvasTex(text,1024,Math.round(1024*h/w),bg,fg,size);const s=new THREE.Sprite(new THREE.SpriteMaterial({map:t,transparent:true,depthWrite:false,fog:false}));const asp=t.image.width/t.image.height,sw=Math.min(w,h*asp);s.scale.set(sw,sw/asp,1);return s}
-function roundedGeo(w,h,d,r=.14){const s=new THREE.Shape(),x=-w/2,y=-h/2;s.moveTo(x+r,y);s.lineTo(x+w-r,y);s.quadraticCurveTo(x+w,y,x+w,y+r);s.lineTo(x+w,y+h-r);s.quadraticCurveTo(x+w,y+h,x+w-r,y+h);s.lineTo(x+r,y+h);s.quadraticCurveTo(x,y+h,x,y+h-r);s.lineTo(x,y+r);s.quadraticCurveTo(x,y,x+r,y);
-  const g=new THREE.ExtrudeGeometry(s,{depth:d,bevelEnabled:true,bevelThickness:.07,bevelSize:.07,bevelSegments:4,curveSegments:8});g.translate(0,0,-d/2);
-  const uv=g.attributes.uv,p=g.attributes.position;for(let i=0;i<uv.count;i++)uv.setXY(i,(p.getX(i)+w/2)/w,(p.getY(i)+h/2)/h);return g}
-function labelBlock(text,w,h,d,color,dark,size){const g=roundedGeo(w,h,d);const front=new THREE.MeshStandardMaterial({map:canvasTex(text,512,Math.max(128,Math.round(512*h/w)),color,dark?'#0a2e24':'#ffffff',size||64),roughness:.4,metalness:.05});
-  return new THREE.Mesh(g,[front,mat(new THREE.Color(color),.4,.05)])}
-function stage(g,r=6.4){const d=new THREE.Mesh(new THREE.CylinderGeometry(r,r+.35,.35,96),new THREE.MeshStandardMaterial({color:0x071f15,roughness:.6,metalness:.05}));d.position.y=-.18;d.receiveShadow=true;g.add(d);
-  const ring=new THREE.Mesh(new THREE.TorusGeometry(r+.02,.045,16,128),new THREE.MeshBasicMaterial({color:0x9be7b8}));ring.rotation.x=Math.PI/2;ring.position.y=.0;g.add(ring);return ring}
-const ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
-const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
-const stag=(p,i,n,span=.6)=>clamp((p-i*(1-span)/Math.max(1,n-1))/span);
-const bk=t=>{const c1=1.70158,c3=c1+1;return 1+c3*Math.pow(t-1,3)+c1*Math.pow(t-1,2)};
-let dragRX=0,dragRY=0; // hero portrait drag, shared with the pointer handler inside start()
+/* ---------- typing effect ---------- */
+const roles=['Admin Executive','Instructional Designer','HR Professional','Data Analyst','Educator'];
+const tw=document.getElementById('tw');let ri=0,ci=0,del=false;
+function type(){if(RM){tw.textContent=roles[0];return}
+const word=roles[ri];tw.textContent=word.slice(0,ci);
+if(!del){ci++;if(ci>word.length){del=true;return void setTimeout(type,1600)}}
+else{ci--;if(ci===0){del=false;ri=(ri+1)%roles.length}}
+setTimeout(type,del?38:75)}
+type();
 
-/* ---------- 3D photo frame (navy backing + gold trim + sheen + caption) ---------- */
-function photoFrame(idx,w,h,cap,dbl){const g=new THREE.Group();const hov=[];
-  const url=window.PHOTOS&&window.PHOTOS[idx];
-  if(url){const tex=new THREE.TextureLoader().load(url);tex.encoding=THREE.sRGBEncoding;tex.anisotropy=4;
-    g.add(new THREE.Mesh(new THREE.BoxGeometry(w+.5,h+.5,.16),new THREE.MeshStandardMaterial({color:NAVY,roughness:.35,metalness:.15})));
-    g.add(new THREE.Mesh(new THREE.BoxGeometry(w+.26,h+.26,.18),new THREE.MeshStandardMaterial({color:GOLD,roughness:.3,metalness:.65})));
-    const pm=new THREE.MeshStandardMaterial({map:tex,roughness:.45,metalness:.05});
-    const front=new THREE.Mesh(new THREE.PlaneGeometry(w,h),pm);front.position.z=.1;front.userData.lb={src:url,cap};g.add(front);hov.push(front);
-    if(dbl){const bk2=front.clone();bk2.rotation.y=Math.PI;bk2.position.z=-.1;bk2.userData.lb={src:url,cap};g.add(bk2);hov.push(bk2)}
-    const sheen=new THREE.Mesh(new THREE.PlaneGeometry(w*.7,h*.7),new THREE.MeshBasicMaterial({color:0xffffff,transparent:true,opacity:.06,depthWrite:false}));
-    sheen.position.set(-w*.2,h*.18,.11);sheen.rotation.z=-.45;g.add(sheen);
-    const sp=sprite(cap,3.4,.44,'#c9a227',60);sp.position.y=-h/2-.52;g.add(sp)}
-  return{group:g,hov}}
+/* ---------- scroll reveals ---------- */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el=>{if(RM)el.classList.add('in');else io.observe(el)});
 
-/* ---------- station builders ---------- */
-function buildHero(){const g=new THREE.Group();stage(g);
-  const fr=photoFrame(4,3.5,4.6,'Sandeep Kumar Chaurasiya',true);
-  const pg=new THREE.Group();pg.position.set(3.9,3.9,0);pg.add(fr.group);g.add(pg);
-  const ring=new THREE.Mesh(new THREE.TorusGeometry(3.05,.09,16,96),new THREE.MeshStandardMaterial({color:GOLD,roughness:.25,metalness:.7}));ring.position.set(3.9,3.9,0);g.add(ring);
-  const parts=[];for(let i=0;i<14;i++){const s=new THREE.Mesh(new THREE.SphereGeometry(.09,10,10),new THREE.MeshBasicMaterial({color:0xf2b84b}));g.add(s);parts.push({s,i})}
-  const cone=new THREE.Mesh(new THREE.ConeGeometry(2.9,6.4,32,1,true),new THREE.MeshBasicMaterial({color:0xf2b84b,transparent:true,opacity:.08,side:THREE.DoubleSide,depthWrite:false}));cone.position.set(3.9,6.8,0);g.add(cone);
-  const glow=new THREE.Mesh(new THREE.CircleGeometry(2.5,48),new THREE.MeshBasicMaterial({color:0xf2b84b,transparent:true,opacity:.12}));glow.rotation.x=-Math.PI/2;glow.position.set(3.9,.06,0);g.add(glow);
-  shadowize(g);
-  return{group:g,hov:fr.hov,update(t,p){pg.rotation.y=dragRY+t*(RM?0:.22);pg.position.y=3.9+Math.sin(t*1.2)*(RM?0:.16);
-    ring.rotation.z=t*(RM?0:.15);
-    parts.forEach(o=>{const a=o.i/14*Math.PI*2+t*(RM?0:.5);o.s.position.set(3.9+Math.cos(a)*3.05,3.9+Math.sin(a)*3.05,Math.sin(t*.8+o.i)*(RM?0:.3))});
-    cone.material.opacity=.06+Math.sin(t*2)*(RM?0:.02);glow.material.opacity=.1+Math.sin(t*2.4)*(RM?0:.04)}}}
-function buildAbout(){const g=new THREE.Group();stage(g);
-  const a=photoFrame(0,3.9,5.0,'Akal Academy Baru Sahib');const A=a.group;A.position.set(-3.4,3.9,0);A.rotation.y=.18;g.add(A);
-  const b=photoFrame(6,2.5,3.4,'Admin Executive');const B=b.group;B.position.set(-7.6,3.2,-1.4);B.rotation.y=.32;g.add(B);
-  const ring=new THREE.Mesh(new THREE.TorusGeometry(4.6,.05,12,110),new THREE.MeshStandardMaterial({color:0x9be7b8,roughness:.25,metalness:.5}));ring.rotation.x=Math.PI/2;ring.position.set(-3.4,.08,0);g.add(ring);
-  shadowize(g);
-  return{group:g,hov:a.hov.concat(b.hov),update(t,p){
-    A.position.y=3.9+Math.sin(t*1.2)*(RM?0:.16);A.rotation.y=.18+Math.sin(t*.5)*(RM?0:.08);
-    B.position.y=3.2+Math.sin(t*1.2+2)*(RM?0:.2);B.rotation.y=.32+Math.sin(t*.5+1)*(RM?0:.1);
-    ring.rotation.z=t*(RM?0:.1)}}}
-function buildGallery(){const g=new THREE.Group();stage(g,7.6);
-  const caps=['Akal Academy Baru Sahib','Admin Desk','In the Office','Daily Rounds'];
-  const xs=[1.2,4.0,6.8,9.6],zs=[1.6,.4,.4,1.6],ys=[3.3,3.7,3.7,3.3];const frs=[];
-  for(let i=0;i<4;i++){const f=photoFrame(i,2.9,3.8,caps[i]);f.group.position.set(xs[i],ys[i],zs[i]);f.group.userData.y0=ys[i];g.add(f.group);frs.push({g:f.group,hov:f.hov,i})}
-  const spots=[];xs.forEach((x,i)=>{const s=new THREE.Mesh(new THREE.CircleGeometry(.9,32),new THREE.MeshBasicMaterial({color:0x9be7b8,transparent:true,opacity:.14}));s.rotation.x=-Math.PI/2;s.position.set(x,.06,zs[i]+.7);g.add(s);spots.push(s)});
-  shadowize(g);
-  const hov=[];frs.forEach(f=>hov.push(...f.hov));
-  return{group:g,hov,update(t,p){frs.forEach(f=>{f.g.position.y=f.g.userData.y0+Math.sin(t*1.3+f.i*1.7)*(RM?0:.18);
-      f.g.rotation.y=(5.4-f.g.position.x)*.12+Math.sin(t*.5+f.i)*(RM?0:.07)});
-    spots.forEach((s,i)=>s.material.opacity=.12+Math.sin(t*2+i)*(RM?0:.05))}}}
-function buildDeskPhoto(){const g=new THREE.Group();stage(g);
-  const f=photoFrame(1,3.4,4.5,'Admin Executive — At Work');f.group.position.set(-4.2,3.6,0);g.add(f.group);
-  const roles=['Instructional Design Intern','Teaching Assistant','HR Intern','Proctor — LPU','Campus Ambassador'];
-  const orb=[];roles.forEach((r,i)=>{const sp=sprite(r,3.2,.55,'#e9f6ee',60);g.add(sp);orb.push({sp,i})});
-  shadowize(g);
-  return{group:g,hov:f.hov,update(t,p){const fg=f.group;fg.position.y=3.6+Math.sin(t*1.2)*(RM?0:.15);fg.rotation.y=Math.sin(t*.45)*(RM?0:.12);
-    orb.forEach(o=>{const a=o.i/5*Math.PI*2+t*(RM?0:.28);o.sp.position.set(-4.2+Math.cos(a)*3.2,3.6+Math.sin(a*1.3)*1.1+Math.sin(t+o.i)*(RM?0:.2),Math.sin(a)*1.9)})}}}
-function buildBars(){const g=new THREE.Group();stage(g);const bars=[];const cs=[0x0f6b4a,0x1f8f5f,0x3fae74,0x7ac96b,0xf2b84b,0xee6a55];const hs=[2,3.4,2.6,4.4,3.2,5];
-  hs.forEach((h,i)=>{const m=new THREE.Mesh(new THREE.BoxGeometry(1,1,1),mat(cs[i],.3,.1));const x=(i-2.5)*1.5;m.position.x=x;g.add(m);bars.push({m,h,i,x})});
-  shadowize(g);
-  return{group:g,hov:bars.map(b=>b.m),update(t,p){bars.forEach(b=>{const k=bk(stag(p,b.i,6,.55));const w=1+Math.sin(t*2+b.i*1.3)*.12;const hh=Math.max(.05,b.h*k*w);b.m.scale.y=hh;b.m.position.set(b.x,hh/2,0)})}}}
-function buildPillars(){const g=new THREE.Group();stage(g,7.4);const labels=['Learn','Build','Lead','Teach','Inspire'];const bl=[];
-  labels.forEach((l,i)=>{const h=(i+1)*.95+.55;const m=labelBlock(l,1.9,h,1.9,BLOCK[i%6],i>=2,72);g.add(m);bl.push({m,h,x:(i-2)*2.2,i})});
-  shadowize(g);
-  return{group:g,hov:bl.map(b=>b.m),update(t,p){bl.forEach(b=>{const k=bk(stag(p,b.i,5,.6));const s=Math.max(.001,k);b.m.scale.y=s;b.m.position.set(b.x,b.h/2*s,0);b.m.rotation.y=Math.sin(t*.5+b.i)*.06})}}}
-function buildRocket(){const g=new THREE.Group();stage(g);
-  const body=new THREE.Mesh(new THREE.CylinderGeometry(.8,1,3.4,32),mat(0xf4fbf6,.25,.3));body.position.y=3.4;g.add(body);
-  const nose=new THREE.Mesh(new THREE.ConeGeometry(.8,1.4,32),mat(0xee6a55,.3,.2));nose.position.y=5.8;g.add(nose);
-  const win=new THREE.Mesh(new THREE.SphereGeometry(.32,20,20),mat(0x0a2e24,.15,.6));win.position.set(0,4.2,1.72);g.add(win);
-  for(let i=0;i<3;i++){const f=new THREE.Mesh(new THREE.BoxGeometry(.18,1.4,.9),mat(0xf2b84b,.35,.2));const a=i/3*Math.PI*2;f.position.set(Math.cos(a)*1.05,2,Math.sin(a)*1.05);f.rotation.y=-a;g.add(f)}
-  const flame=new THREE.Mesh(new THREE.ConeGeometry(.55,1.6,20),new THREE.MeshBasicMaterial({color:0xf2b84b,transparent:true,opacity:.9}));flame.position.y=.9;flame.rotation.x=Math.PI;g.add(flame);
-  const glow=new THREE.PointLight(0xf2b84b,1.2,12);glow.position.y=1;g.add(glow);
-  shadowize(g);
-  return{group:g,hov:[body,nose],update(t,p){const k=ease(clamp(p*1.2));const s=Math.max(.001,k);body.scale.setScalar(.35+.65*s);nose.scale.setScalar(.35+.65*s);g.position.y=Math.sin(t*1.6)*(RM?0:.35);g.rotation.y=t*(RM?0:.3);flame.scale.set(1+Math.sin(t*22)*(RM?0:.18),1+Math.sin(t*30)*(RM?0:.25),1+Math.sin(t*22)*(RM?0:.18));glow.intensity=1+Math.sin(t*25)*(RM?0:.35)}}}
-function buildPapers(){const g=new THREE.Group();stage(g);const sheets=[];
-  for(let i=0;i<4;i++){const m=new THREE.Mesh(new THREE.BoxGeometry(3,.09,4),mat(0xf4fbf6,.55));m.position.set((i%2?.25:-.2),1.4+i*.35,(i%2?-.15:.2));m.rotation.y=(i-1.5)*.18;g.add(m);sheets.push({m,i})}
-  const book=new THREE.Mesh(roundedGeo(2.2,2.8,.5,.12),mat(0x0f6b4a,.4));book.position.set(2.8,2.2,-1);book.rotation.set(.2,.5,0);g.add(book);
-  shadowize(g);
-  return{group:g,hov:sheets.map(s=>s.m).concat([book]),update(t,p){sheets.forEach(s=>{const k=bk(stag(p,s.i,4,.6));s.m.scale.setScalar(Math.max(.001,k));s.m.position.y=1.4+s.i*.35+Math.sin(t*1.5+s.i)*(RM?0:.12)});book.position.y=2.2+Math.sin(t*1.2+2)*(RM?0:.2);book.rotation.y=.5+t*(RM?0:.25)}}}
-function buildTrophy(){const g=new THREE.Group();stage(g);const gold=mat(0xf2b84b,.22,.85);
-  const base=new THREE.Mesh(new THREE.CylinderGeometry(1.1,1.3,.5,32),mat(0x0f6b4a,.4));base.position.y=.75;g.add(base);
-  const stem=new THREE.Mesh(new THREE.CylinderGeometry(.28,.42,1.6,24),gold);stem.position.y=1.8;g.add(stem);
-  const cup=new THREE.Mesh(new THREE.CylinderGeometry(1.25,.55,1.5,32),gold);cup.position.y=3.3;g.add(cup);
-  [-1,1].forEach(s=>{const h=new THREE.Mesh(new THREE.TorusGeometry(.62,.14,14,40,Math.PI),gold);h.position.set(s*1.25,3.3,0);h.rotation.z=s>0?-Math.PI/2+.3:Math.PI/2-.3;g.add(h)});
-  const star=new THREE.Mesh(new THREE.OctahedronGeometry(.4,0),new THREE.MeshBasicMaterial({color:0xf4fbf6}));star.position.y=4.6;g.add(star);
-  shadowize(g);
-  return{group:g,hov:[cup,stem],update(t,p){const k=ease(clamp(p*1.25));const s=Math.max(.001,k);[base,stem,cup].forEach(m=>m.scale.setScalar(s));g.rotation.y=t*(RM?0:.5);star.rotation.set(t,t*1.4,0);star.position.y=4.6+Math.sin(t*2)*(RM?0:.15)}}}
-function buildPodium(){const g=new THREE.Group();stage(g,7);const steps=[['2',1.6,-2.2],['1',2.6,0],['3',1.1,2.2]];const bl=[];
-  steps.forEach(([n,h,x],i)=>{const m=labelBlock(n,2,h,2,i===1?'#f2b84b':'#1f8f5f',i!==1,120);g.add(m);bl.push({m,h,x,i})});
-  shadowize(g);
-  return{group:g,hov:bl.map(b=>b.m),update(t,p){bl.forEach(b=>{const k=bk(stag(p,b.i,3,.6));const s=Math.max(.001,k);b.m.scale.y=s;b.m.position.set(b.x,b.h/2*s,0)})}}}
-function stairs(labels,desc,fs){const g=new THREE.Group();stage(g,7.4);const n=labels.length,bl=[];
-  labels.forEach((l,i)=>{const h=(desc?(n-i):(i+1))*.95+.55;const m=labelBlock(l,1.9,h,1.9,BLOCK[i%6],i>=2,fs);g.add(m);bl.push({m,h,x:(i-(n-1)/2)*2.2,i})});shadowize(g);
-  return{group:g,hov:bl.map(b=>b.m),update(t,p){bl.forEach(b=>{const k=bk(stag(p,b.i,n,.6));const s=Math.max(.001,k);b.m.scale.y=s;b.m.position.set(b.x,b.h/2*s+Math.sin(t*1.6+b.i)*(RM?0:.02),0);b.m.rotation.y=Math.sin(t*.5+b.i)*.06})}}}
-function buildNetwork(){const g=new THREE.Group();stage(g);const N=10,nodes=[],cs=[0x0f6b4a,0x1f8f5f,0x3fae74,0x7ac96b,0xc8d94a,0xf2b84b];
-  const hub=new THREE.Mesh(new THREE.IcosahedronGeometry(1,2),mat(0xf4fbf6,.2,.25));hub.position.y=3.2;g.add(hub);
-  for(let i=0;i<N;i++){const m=new THREE.Mesh(new THREE.SphereGeometry(.4+(i%3)*.1,32,32),mat(cs[i%6],.3));g.add(m);const c=new THREE.Mesh(new THREE.CylinderGeometry(.035,.035,1,8),new THREE.MeshBasicMaterial({color:0x9be7b8,transparent:true,opacity:.7}));g.add(c);
-    const pulse=new THREE.Mesh(new THREE.SphereGeometry(.12,12,12),new THREE.MeshBasicMaterial({color:0xf2b84b}));g.add(pulse);nodes.push({m,c,pulse,i})}
-  shadowize(g);
-  return{group:g,hov:nodes.map(n=>n.m).concat([hub]),update(t,p){hub.rotation.set(t*.4,t*.6,0);hub.scale.setScalar(1+Math.sin(t*2)*(RM?0:.06));const R=4.4*ease(clamp(p*1.15));
-    nodes.forEach(n=>{const a=n.i/N*Math.PI*2+t*(RM?0:.2);n.m.position.set(Math.cos(a)*R,3.2+Math.sin(n.i*2.1+t)*(RM?0:.7),Math.sin(a)*R*.75);const from=hub.position,d=n.m.position.clone().sub(from),len=d.length();
-      n.c.position.copy(from).add(d.clone().multiplyScalar(.5));n.c.scale.set(1,len,1);n.c.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0),d.clone().normalize());
-      const k=((t*(RM?0:.35)+n.i*.13)%1);n.pulse.position.copy(from).add(d.clone().multiplyScalar(k));n.pulse.scale.setScalar(.6+Math.sin(k*Math.PI)*.8)})}}}
-function buildContact(){const n=buildNetwork();const g=n.group;
-  const f=photoFrame(5,2.9,3.8,'Sandeep Kumar Chaurasiya');f.group.position.set(4.4,3.6,-1);f.group.rotation.y=-.25;g.add(f.group);
-  return{group:g,hov:n.hov.concat(f.hov),update(t,p){n.update(t,p);f.group.position.y=3.6+Math.sin(t*1.3)*(RM?0:.16);f.group.rotation.y=-.25+Math.sin(t*.5)*(RM?0:.08)}}}
+/* ---------- counters ---------- */
+function animCount(el){const to=parseFloat(el.dataset.to),dec=parseInt(el.dataset.dec||0),suf=el.dataset.suffix||'';
+if(RM){el.textContent=to.toFixed(dec)+suf;return}
+const t0=performance.now(),dur=1600;
+(function f(t){const p=Math.min((t-t0)/dur,1),e=1-Math.pow(1-p,3);el.textContent=(to*e).toFixed(dec)+suf;if(p<1)requestAnimationFrame(f)})(t0)}
+const cio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){animCount(e.target);cio.unobserve(e.target)}}),{threshold:0.5});
+document.querySelectorAll('.count').forEach(el=>{if(RM)animCount(el);else cio.observe(el)});
 
-/* ---------- quotes, one per slide ---------- */
-const QUOTES=[
-{g:'“Education is the most powerful weapon which you can use to change the world.”',m:'Anti-apartheid revolutionary and former president of South Africa',a:'Nelson Mandela',hero:1},
-{g:'“The beautiful thing about learning is that nobody can take it away from you.”',m:'Singer, guitarist and songwriter',a:'B.B. King'},
-{g:'“Education is not preparation for life; education is life itself.”',m:'Philosopher and educational reformer',a:'John Dewey'},
-{g:'“Tell me and I forget. Teach me and I remember. Involve me and I learn.”',m:'Scientist, inventor and statesman',a:'Benjamin Franklin'},
-{g:'“The expert in anything was once a beginner.”',m:'Actress',a:'Helen Hayes'},
-{g:'“Research is formalized curiosity.”',m:'Writer and anthropologist',a:'Zora Neale Hurston'},
-{g:'“An investment in knowledge pays the best interest.”',m:'Scientist, inventor and statesman',a:'Benjamin Franklin'},
-{g:'“The best way to predict the future is to create it.”',m:'Management thinker',a:'Peter Drucker'},
-{g:'“Success is not final, failure is not fatal: it is the courage to continue that counts.”',m:'Prime Minister of the United Kingdom',a:'Winston Churchill'},
-{g:'“The future belongs to those who believe in the beauty of their dreams.”',m:'First Lady of the United States',a:'Eleanor Roosevelt'},
-{g:'“The future depends on what you do today.”',m:'Leader of the Indian independence movement',a:'Mahatma Gandhi',hero:1}
-];
+/* ---------- skill bars ---------- */
+const SKILLS=[['Research Data Analysis (SPSS, JAMOVI)',92],['Instructional Design',88],['ICT & AI Tools',86],['Computer Operations',90],['Web Development',72]];
+document.getElementById('bars').innerHTML=SKILLS.map(s=>`<div class="bar-row"><div class="lbl"><span>${s[0]}</span><i>${s[1]}%</i></div><div class="track"><div class="fill" data-w="${s[1]}"></div></div></div>`).join('');
+const bio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('.fill').forEach(f=>f.style.width=f.dataset.w+'%');bio.unobserve(e.target)}}),{threshold:0.3});
+bio.observe(document.getElementById('bars'));
+if(RM)document.querySelectorAll('.fill').forEach(f=>f.style.width=f.dataset.w+'%');
 
-/* ---------- slide content ---------- */
-const S=[
-{side:'left',cam:[0,4.2,16],look:3,build:buildHero,eyebrow:'Portfolio · 2026',title:'Sandeep Kumar <em>Chaurasiya</em>',body:'<strong>Admin Executive · Instructional Designer · HR Professional · Data Analyst · Educator.</strong><br>MA Education candidate at Lovely Professional University, blending instructional design, data analysis, and people operations to build better learning experiences.',extra:'<img class="photo" id="heroImg" alt="Sandeep Kumar Chaurasiya"><div class="stats"><div class="stat"><strong>5+</strong><span>Professional Roles</span></div><div class="stat"><strong>16</strong><span>Certificates</span></div><div class="stat"><strong>3</strong><span>Publications</span></div><div class="stat"><strong>7.8</strong><span>CGPA</span></div></div><p class="hint">Use ← → arrows or the dots to fly through · drag the portrait to spin it · click any photo to enlarge</p>',notes:'Welcome to my 3D portfolio — use arrows or dots to fly through my journey.'},
-{side:'right',cam:[0,4.2,16],look:3.2,build:buildAbout,eyebrow:'About me',title:'Educator, <em>researcher</em> &amp; builder',body:'Education professional and MA Education candidate at Lovely Professional University with hands-on experience across instructional design, teaching assistance, HR operations, and research data analysis (SPSS, JAMOVI). Published researcher and book-chapter author who builds practical learning solutions — from course storyboards to early-warning system concepts.',extra:'<ul><li><b>Base</b>Pratapgarh, UP, India</li><li><b>Now</b>MA Education, Lovely Professional University</li></ul>',notes:'1 min. Who I am: an education professional working across instructional design, HR and research data analysis, currently doing my MA in Education at LPU.'},
-{side:'left',cam:[0,4.6,18],look:3,build:buildGallery,eyebrow:'Photo gallery',title:'In the <em>office</em>',body:'A walk through my workspace at Akal Academy Baru Sahib — where administration, records and daily coordination come together.',extra:'<p class="hint">Hover a photo to make it pop · click any photo to view it full size</p>',notes:'1 min. My office at Akal Academy Baru Sahib — the admin desk, the records, and the daily rhythm of school operations.'},
-{side:'left',cam:[0,4.4,17],look:2.8,build:buildBars,eyebrow:'What I bring',title:'Skills &amp; <em>strengths</em>',body:'A mix of technical craft and professional habits, built through internships, research and campus roles.',extra:'<div class="pills"><b>Technical</b><span>Research Data Analysis (SPSS, JAMOVI)</span><span>Instructional Design</span><span>ICT and AI Tools</span><span>Computer Operations</span><span>Adobe Express</span><span>Google Workspace</span><span>Digital Productivity</span><span>Web Development</span></div><div class="pills"><b>Professional</b><span>Communication</span><span>Problem-Solving</span><span>Teamwork</span><span>Project Management</span><span>Adaptability</span><span>Leadership</span></div>',notes:'2 min. Technical depth in research analysis and instructional design, plus the professional skills that make teams work.'},
-{side:'right',cam:[1,4.4,17],look:2.4,build:buildDeskPhoto,eyebrow:'Where I have worked',title:'Experience',body:'Five roles across education, HR and student mentoring — each one adding a new pillar.',extra:'<ul><li><b>May–Jul 25</b>Junior Instructional Design Intern — YUVA (Virtual)</li><li><b>May–Jun 25</b>Teaching Assistant — YUVA (Virtual)</li><li><b>Apr–Oct 25</b>HR Intern (Paid) — InternCourse</li><li><b>Dec 24–25</b>Proctor, Academic Support &amp; Mentoring — LPU</li><li><b>Dec 24–25</b>Campus Ambassador — Wayspire (Virtual)</li></ul>',notes:'2 min. From designing courses to screening resumes to mentoring students — experience across the learning and people spectrum.'},
-{side:'left',cam:[0,4.6,16.5],look:2.3,build:buildRocket,eyebrow:'Selected work',title:'Projects',body:'Ideas turned into structured, working outputs.',extra:'<ul><li><b>Sep 25</b>Early Warning System for Natural Disasters — MSME Hackathon concept with flowcharts for vulnerable coastal and hilly regions.</li><li><b>Sep–Oct 24</b>Social Media Addiction &amp; Academic Achievement Study — research on addiction, social support and procrastination effects on student well-being.</li></ul>',notes:'2 min. A hackathon concept for disaster preparedness, and a full research study from literature review to data instruments.'},
-{side:'right',cam:[0,4.6,19],look:2.4,build:buildPapers,eyebrow:'Research',title:'Publications',body:'Published, peer-recognised work in education and technology.',extra:'<ul><li><b>May 26</b>“Educational Leadership and Student Psychological Wellbeing” — JAAFR Vol. 4, Issue 5. <a href="https://doi.org/10.56975/jaafr.v4i5.510170" target="_blank" rel="noopener">doi.org/10.56975/jaafr.v4i5.510170</a></li><li><b>Sep 24</b>“Bloody Letter to the President” — chapter in <em>Prisms of Youth</em>.</li><li><b>Sep 25</b><em>AI for Industry, Education and Research</em> — book chapter, Bhumi Publisher.</li></ul>',notes:'2 min. A published journal paper on educational leadership, plus two book chapters.'},
-{side:'left',cam:[2,4.4,17],look:2.8,build:buildTrophy,eyebrow:'Credentials',title:'16 <em>certificates</em>',body:'Every certificate, verified — click any thumbnail to view it full size.',extra:'<div class="certgrid" id="certgrid"></div>',notes:'2 min. Sixteen certificates across data analysis, leadership, soft skills, HR and education technology. Click to inspect any of them.'},
-{side:'right',cam:[0,4.6,19],look:2.4,build:buildPodium,eyebrow:'Recognition',title:'Achievements',body:'Moments that stood out.',extra:'<ul><li><b>Aug 25</b>National Level Conference participant — Sustainable Development Goals.</li><li><b>May 25</b>Second Prize, InnoTek 2025 (Inter-College) — LPU Dept. of Education.</li><li><b>—</b>First Prize, Infographic Design — EduRev, LPU Dept. of Education.</li></ul>',notes:'1 min. National conference participation and two design prizes at LPU.'},
-{side:'left',cam:[0,5.2,17.5],look:3.2,build:()=>stairs(['Matric','Secondary','BA','ITI','MA'],false,70),eyebrow:'Academics',title:'Education',body:'Each step a little higher than the last.',extra:'<ul><li><b>2024–Now</b>MA Education, LPU — CGPA 7.80</li><li><b>2023–24</b>ITI COPA, NIPS Prayagraj — 82%</li><li><b>2020–23</b>BA, University of Allahabad — 72%</li><li><b>2019–20</b>Secondary — 82%</li><li><b>2017–18</b>Matriculation — 78%</li></ul>',notes:'1 min. From matriculation to a master’s in education — steady upward steps.'},
-{side:'right',cam:[0,4.8,18.5],look:3,build:buildContact,eyebrow:'Get in touch',title:'Let’s <em>work together</em>',body:'Open to roles in education, HR, instructional design and data analysis — and to collaborations of any kind.',extra:'<img class="photo" id="contactImg" alt="Sandeep Kumar Chaurasiya"><ul><li><b>Email</b><a href="mailto:Sandeepkumar.2024@lpu.in">Sandeepkumar.2024@lpu.in</a></li><li><b>Phone</b><a href="tel:+917814169005">+91-7814169005</a></li><li><b>LinkedIn</b><a href="https://www.linkedin.com/in/sandeepkumarchaurasiya" target="_blank" rel="noopener">linkedin.com/in/sandeepkumarchaurasiya</a></li><li><b>GitHub</b><a href="https://github.com/akalacademyschool" target="_blank" rel="noopener">github.com/akalacademyschool</a></li><li><b>Instagram</b><a href="https://www.instagram.com/sandeep.lpu" target="_blank" rel="noopener">@sandeep.lpu</a></li><li><b>Portfolio</b><a href="https://akalacademyschool.github.io" target="_blank" rel="noopener">akalacademyschool.github.io</a></li></ul><p class="hint">Thank you · questions welcome</p>',notes:'1 min. Reach out — email is fastest. Thank you for flying through my portfolio.'}
-];
+/* ---------- gallery ---------- */
+const GCAPS=['Office collage','At the desk','In the office','Daily coordination'];
+const gg=document.getElementById('ggrid');
+for(let i=0;i<4;i++){if(!ph(i))continue;const d=document.createElement('div');d.className='g-item reveal'+(i%4?' d'+(i%4):'');d.dataset.cap=GCAPS[i];
+d.innerHTML=`<img src="${ph(i)}" alt="${GCAPS[i]}" loading="lazy">`;d.onclick=()=>openLB(ph(i),GCAPS[i]);gg.appendChild(d);if(!RM)io.observe(d)}
 
-function start(){
+/* ---------- experience + education timelines ---------- */
+const EXP=[['May – Jul 2025','Junior Instructional Design Intern','YUVA (Virtual)','Designed course content and learning materials in a virtual internship.'],
+['May – Jun 2025','Teaching Assistant','YUVA (Virtual)','Supported learners and assisted in delivering educational programs online.'],
+['Apr – Oct 2025','HR Intern (Paid)','InternCourse','Hands-on HR operations — recruitment support, documentation and people processes.'],
+['Dec 2024 – 2025','Proctor, Academic Support & Mentoring','Lovely Professional University','Mentored students and supported academic operations on campus.'],
+['Dec 2024 – 2025','Campus Ambassador','Wayspire (Virtual)','Represented the brand on campus and drove student engagement.']];
+document.getElementById('expTl').innerHTML=EXP.map(e=>`<div class="tl-item"><div class="tl-card"><p class="tl-date">${e[0]}</p><h3>${e[1]}</h3><p class="org">${e[2]}</p><p>${e[3]}</p></div></div>`).join('');
+const EDU=[['2024 – Present','MA Education, Lovely Professional University','CGPA 7.80'],
+['2023 – 2024','ITI COPA, NIPS Prayagraj','82%'],
+['2020 – 2023','BA, University of Allahabad','72%'],
+['2019 – 2020','Secondary','82%'],
+['2017 – 2018','Matriculation','78%']];
+document.getElementById('eduTl').innerHTML=EDU.map(e=>`<div class="tl-item"><div class="tl-card"><p class="tl-date">${e[0]}</p><h3>${e[1]}</h3><p class="org">${e[2]}</p></div></div>`).join('');
 
-/* ---------- build world ---------- */
-const stations=S.map((s,i)=>{const st=s.build();st.group.position.x=i*STEP;st.group.visible=i<2;scene.add(st.group);st.spring={s:0,v:0};st.i=i;return st});
-// ambient particles along the runway
-const PN=1400,pg=new THREE.BufferGeometry(),pp=new Float32Array(PN*3),pc=new Float32Array(PN*3),pv=[];
-const pal=[new THREE.Color(0x9be7b8),new THREE.Color(0xf2b84b),new THREE.Color(0x7ac96b),new THREE.Color(0xf4fbf6)];
-for(let i=0;i<PN;i++){pp[i*3]=(Math.random()*(S.length+1)-.5)*STEP;pp[i*3+1]=Math.random()*22-2;pp[i*3+2]=-30+Math.random()*50;const c=pal[i%4];pc.set([c.r,c.g,c.b],i*3);pv.push(Math.random()*.4+.1)}
-pg.setAttribute('position',new THREE.BufferAttribute(pp,3));pg.setAttribute('color',new THREE.BufferAttribute(pc,3));
-const pts=new THREE.Points(pg,new THREE.PointsMaterial({size:.14,vertexColors:true,transparent:true,opacity:.75,depthWrite:false,sizeAttenuation:true}));scene.add(pts);
-// confetti burst
-const CN=160,cg=new THREE.BufferGeometry(),cpos=new Float32Array(CN*3),cvel=[],cc=new Float32Array(CN*3);
-for(let i=0;i<CN;i++){cvel.push(new THREE.Vector3());const c=pal[i%4];cc.set([c.r,c.g,c.b],i*3)}
-cg.setAttribute('position',new THREE.BufferAttribute(cpos,3));cg.setAttribute('color',new THREE.BufferAttribute(cc,3));
-const conf=new THREE.Points(cg,new THREE.PointsMaterial({size:.32,vertexColors:true,transparent:true,opacity:1,depthWrite:false}));conf.visible=false;scene.add(conf);let confT=-1,confO=new THREE.Vector3();
-function burst(x,y,z){confO.set(x,y,z);for(let i=0;i<CN;i++){cpos.set([x,y,z],i*3);cvel[i].set((Math.random()-.5)*14,Math.random()*11+3,(Math.random()-.5)*14)}cg.attributes.position.needsUpdate=true;confT=0;conf.visible=true}
-
-/* ---------- UI ---------- */
-const cardsEl=document.getElementById('cards'),dotsEl=document.getElementById('dots'),notesEl=document.getElementById('notes');
-S.forEach((s,i)=>{const c=document.createElement('section');c.className='card '+s.side;c.setAttribute('aria-label','Slide '+(i+1));c.innerHTML=`<p class="eyebrow">${s.eyebrow}</p><h2>${s.title}</h2><p>${s.body}</p>${s.extra||''}`;cardsEl.appendChild(c);s.el=c;
-  const d=document.createElement('button');d.className='dot';d.setAttribute('aria-label','Go to slide '+(i+1));d.onclick=()=>go(i);dotsEl.appendChild(d);s.dot=d});
-const countEl=document.getElementById('count'),barEl=document.getElementById('barfill'),pad=n=>String(n).padStart(2,'0');
-// card photos from the repo photo assets (defensive: hide if unavailable)
-(function(){const P=window.PHOTOS||{};const h=document.getElementById('heroImg');if(h){if(P[4])h.src=P[4];else h.style.display='none'}
-  const c=document.getElementById('contactImg');if(c){if(P[5])c.src=P[5];else c.style.display='none'}})();
-
-/* ---------- certificate grid + lightbox ---------- */
+/* ---------- certificates ---------- */
 const CERTS=[["jaafr-confirmation.jpg","JAAFR Research Paper Confirmation"],["hr-internship.jpg","HR Internship Certificate"],["campus-ambassador.jpg","Campus Ambassador, Wayspire"],["iira-data-analysis.jpg","Data Analysis, IIRA"],["tcs-soft-skills.jpg","Soft Skills, TCS"],["hp-leadership.jpg","Effective Leadership, HP"],["gemini-workspace.jpg","Gemini for Google Workspace"],["icil-2026.jpg","ICIL 2026 Participation"],["national-conference.jpg","National Conference"],["seminar-certificate.jpg","Seminar Certificate"],["iti-copa.jpg","ITI COPA Certificate, NIPS"],["ai-book-chapter.jpg","AI for Industry, Education & Research (Book Chapter)"],["jaafr-certificate.jpg","JAAFR Certificate of Publication"],["udemy-leadership.jpg","Educational Leadership & Academic Practice, Udemy"],["iira-python.jpg","Data Analysis Using Python, IIRA"],["iks-presentation.jpg","Paper Presentation — National Conference on Indian Knowledge System"]];
+const cg=document.getElementById('cgrid');
+CERTS.forEach(c=>{const src=CIMGS[c[0]];if(!src)return;const b=document.createElement('button');b.className='c-item reveal';b.innerHTML=`<img src="${src}" alt="${c[1]}" loading="lazy"><span>${c[1]}</span>`;b.onclick=()=>openLB(src,c[1]);cg.appendChild(b);if(!RM)io.observe(b)});
+
+/* ---------- lightbox ---------- */
 const LB=document.getElementById('lightbox');
-function openLB(src,cap){if(!src)return;document.getElementById('lbimg').src=src;document.getElementById('lbcap').textContent=cap;LB.hidden=false}
-function closeLB(){LB.hidden=true}
+function openLB(src,cap){if(!src)return;document.getElementById('lbimg').src=src;document.getElementById('lbcap').textContent=cap||'';LB.classList.add('open');document.body.style.overflow='hidden'}
+function closeLB(){LB.classList.remove('open');document.body.style.overflow=''}
 document.getElementById('lbclose').onclick=closeLB;
 LB.addEventListener('click',e=>{if(e.target===LB)closeLB()});
-(function(){const g=document.getElementById('certgrid');if(!g)return;const IM=window.CERT_IMGS||{};
-  CERTS.forEach(([f,cap])=>{const b=document.createElement('button');b.className='cert';b.setAttribute('aria-label',cap);
-    const im=document.createElement('img');im.src=IM[f]||'';im.alt=cap;im.loading='lazy';
-    const sp=document.createElement('span');sp.textContent=cap;b.append(im,sp);b.onclick=()=>openLB(IM[f],cap);g.appendChild(b)})})();
+addEventListener('keydown',e=>{if(e.key==='Escape')closeLB()});
 
-/* ---------- camera flight ---------- */
-let cur=-1,prev=-1,flight=null;const camPos=new THREE.Vector3(),camLook=new THREE.Vector3();let offX=0,offY=0,tOffX=0,tOffY=0;
-function target(i){const s=S[i];return{p:new THREE.Vector3(i*STEP+s.cam[0],s.cam[1]*1.25,s.cam[2]*1.32),l:new THREE.Vector3(i*STEP,s.look,0)}}
-function go(i,instant){i=clamp(i,0,S.length-1);if(i===cur)return;const first=cur<0;prev=cur;cur=i;
-  S.forEach((s,k)=>{s.el.classList.toggle('on',k===i);s.dot.classList.toggle('on',k===i);if(k===i)s.dot.setAttribute('aria-current','true');else s.dot.removeAttribute('aria-current')});
-  countEl.textContent=pad(i+1)+' / '+pad(S.length);barEl.style.width=((i+1)/S.length*100)+'%';
-  if(!notesEl.hidden)notesEl.innerHTML='<b>Speaker notes</b>'+S[i].notes;
-  const q=QUOTES[i],pe=document.getElementById('pangti');pe.classList.toggle('hero',!!q.hero);pe.children[0].textContent=q.g;pe.children[1].textContent=q.m;pe.children[2].textContent=q.a;
-  try{history.replaceState(null,'','#s'+(i+1))}catch(e){}
-  const T=target(i);
-  if(first||instant){camPos.copy(T.p);camLook.copy(T.l);flight=null}
-  else{flight={t:0,dur:RM?.01:2.1,fp:camPos.clone(),fl:camLook.clone(),tp:T.p,tl:T.l}}
-  if(!first)startTimer();
-  stations[i].group.visible=true;if(prev>=0)stations[prev].group.visible=true;
-  if(i===S.length-1&&!RM){setTimeout(()=>burst(i*STEP,3.5,0),1500)}
-  updateOffsets()}
-function updateOffsets(){const w=innerWidth,h=innerHeight;if(w<=760){tOffX=0;tOffY=h*.2}else{tOffX=(S[cur].side==='left'?-w*.17:w*.17)}}
-document.getElementById('prev').onclick=()=>go(cur-1);document.getElementById('next').onclick=()=>go(cur+1);
-addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'||e.key==='Enter'){e.preventDefault();go(cur+1)}else if(e.key==='ArrowLeft'||e.key==='PageUp'){go(cur-1)}else if(e.key==='Home')go(0);else if(e.key==='End')go(S.length-1);else if(e.key==='n'||e.key==='N')toggleNotes();else if(e.key==='f'||e.key==='F')fs();else if(e.key==='Escape'&&!LB.hidden)closeLB()});
-function toggleNotes(){notesEl.hidden=!notesEl.hidden;document.getElementById('notesBtn').setAttribute('aria-pressed',String(!notesEl.hidden));if(!notesEl.hidden)notesEl.innerHTML='<b>Speaker notes</b>'+S[cur].notes}
-document.getElementById('notesBtn').onclick=toggleNotes;
-function fs(){try{if(document.fullscreenElement){document.exitFullscreen()}else{const p=document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen();if(p&&p.catch)p.catch(()=>{})}}catch(e){}}
-document.getElementById('fsBtn').onclick=fs;
-let t0=null,tmr=document.getElementById('timer');function startTimer(){if(t0===null)t0=performance.now()}
-tmr.onclick=()=>{t0=null;tmr.textContent='00:00'};
-setInterval(()=>{if(t0!==null){const s=Math.floor((performance.now()-t0)/1000);tmr.textContent=pad(Math.floor(s/60))+':'+pad(s%60)}},500);
-// swipe + hero portrait drag (dragRX/dragRY live at IIFE scope so builders can read them)
-let sx=null,dragging=false,lx=0,ly=0;
-canvas.addEventListener('pointerdown',e=>{sx=e.clientX;mouseDown=true;if(e.pointerType!=='touch'){dragging=true;lx=e.clientX;ly=e.clientY}});
-addEventListener('pointerup',e=>{mouseDown=false;dragging=false;if(sx!==null&&e.pointerType==='touch'){const dx=e.clientX-sx;if(Math.abs(dx)>60)go(cur+(dx<0?1:-1))}sx=null});let mouseDown=false;
-canvas.addEventListener('pointermove',e=>{if(dragging&&cur===0){dragRY+=(e.clientX-lx)*.008;dragRX=clamp(dragRX+(e.clientY-ly)*.005,-.6,.6);lx=e.clientX;ly=e.clientY}});
-
-/* ---------- pointer: parallax + hover + click pop / photo lightbox ---------- */
-const ray=new THREE.Raycaster(),mp=new THREE.Vector2(9,9);let px=0,py=0,hovered=null;const pops=new WeakMap();
-addEventListener('pointermove',e=>{mp.set(e.clientX/innerWidth*2-1,-(e.clientY/innerHeight)*2+1);px=mp.x;py=mp.y});
-canvas.addEventListener('click',()=>{if(hovered){const lb=hovered.userData&&hovered.userData.lb;if(lb){openLB(lb.src,lb.cap);return}
-  const p=pops.get(hovered)||{s:1,v:0};p.v+=9;pops.set(hovered,p);burstSmall(hovered)}});
-function burstSmall(m){const w=new THREE.Vector3();m.getWorldPosition(w);if(!RM)burst(w.x,w.y+1,w.z)}
-function resize(){const w=innerWidth,h=innerHeight;renderer.setSize(w,h,false);camera.aspect=w/h;camera.fov=w<760?50:38;camera.updateProjectionMatrix();if(cur>=0)updateOffsets()}
-addEventListener('resize',resize);resize();
-
-/* ---------- loop ---------- */
-const clock=new THREE.Clock();let T=0;
-function frame(){requestAnimationFrame(frame);const dt=Math.min(clock.getDelta(),.05);T+=dt;
-  // flight
-  if(flight){flight.t+=dt;const k=clamp(flight.t/flight.dur),e=ease(k);const lift=Math.sin(Math.PI*e);
-    camPos.lerpVectors(flight.fp,flight.tp,e);camPos.y+=lift*5;camPos.z+=lift*10;camLook.lerpVectors(flight.fl,flight.tl,e);camera.fov=(innerWidth<760?50:38)+lift*(RM?0:12);camera.updateProjectionMatrix();
-    if(k>=1){flight=null;if(prev>=0&&prev!==cur)stations[prev].group.visible=false;camera.fov=innerWidth<760?50:38;camera.updateProjectionMatrix()}}
-  const rp=camPos.clone();rp.x+=px*(RM?0:1.2);rp.y+=py*(RM?0:.7)+Math.sin(T*.5)*(RM?0:.1);camera.position.copy(rp);camera.lookAt(camLook);
-  offX+=(tOffX-offX)*Math.min(1,dt*3);offY+=(tOffY-offY)*Math.min(1,dt*3);camera.setViewOffset(innerWidth,innerHeight,offX,offY,innerWidth,innerHeight);
-  // lights follow
-  key.position.set(camLook.x+8,14,9);key.target.position.set(camLook.x,0,0);rimA.position.set(camLook.x-9,6,6);rimB.position.set(camLook.x+9,7,-4);
-  // stations
-  stations.forEach(st=>{const g=st.group;if(!g.visible)return;const sp=st.spring,tgt=st.i===cur?1:0;const f=(tgt-sp.s)*80-sp.v*10;sp.v+=f*dt;sp.s+=sp.v*dt;if(RM){sp.s=tgt;sp.v=0}
-    const sc=Math.max(.001,.25+.75*sp.s);g.scale.setScalar(sc);const p=clamp(sp.s*1.0,0,1.2);st.update(T,Math.min(p,1.0));
-    st.hov.forEach(m=>{let pp=pops.get(m);if(!pp){pp={s:1,v:0};pops.set(m,pp)}const tg=m===hovered?1.14:1;const ff=(tg-pp.s)*120-pp.v*9;pp.v+=ff*dt;pp.s+=pp.v*dt;})});
-  const act=stations[cur>=0?cur:0];
-  if(act){ray.setFromCamera(mp,camera);const hit=ray.intersectObjects(act.hov,true);let h=null;if(hit.length){let o=hit[0].object;while(o&&!act.hov.includes(o))o=o.parent;h=o}hovered=h;canvas.classList.toggle('hov',!!h)}
-  // particles drift
-  const pa=pg.attributes.position;for(let i=0;i<PN;i++){let y=pa.array[i*3+1]+pv[i]*dt*(RM?0:1);if(y>20)y=-2;pa.array[i*3+1]=y}pa.needsUpdate=true;
-  // confetti
-  if(confT>=0){confT+=dt;const a=cg.attributes.position;for(let i=0;i<CN;i++){cvel[i].y-=12*dt;a.array[i*3]+=cvel[i].x*dt;a.array[i*3+1]+=cvel[i].y*dt;a.array[i*3+2]+=cvel[i].z*dt}a.needsUpdate=true;conf.material.opacity=Math.max(0,1-confT/2.2);if(confT>2.2){confT=-1;conf.visible=false}}
-  renderer.render(scene,camera)}
-// hover/click pop: applied after each station update
-stations.forEach(st=>{const u=st.update;st.hov.forEach(m=>{m.userData.base=m.scale.clone();m.userData.last=m.scale.clone()});
-  st.update=function(t,p){u(t,p);st.hov.forEach(m=>{const pp=pops.get(m);if(!pp)return;const ud=m.userData;
-    if(m.scale.equals(ud.last))m.scale.copy(ud.base).multiplyScalar(pp.s);else m.scale.multiplyScalar(pp.s);ud.last.copy(m.scale)})}});
-let startIdx=0;const m=/^#s(\d+)$/.exec(location.hash);if(m)startIdx=clamp(+m[1]-1,0,S.length-1);
-go(startIdx,true);stations.forEach(st=>{if(st.i===cur){st.spring.s=0;st.spring.v=0;st.group.visible=true}});
-const L=document.getElementById('loading');setTimeout(()=>{L.style.opacity=0},300);
-frame();
-}
-Promise.race([document.fonts?document.fonts.load('800 80px "Bricolage Grotesque"'):Promise.resolve(),new Promise(r=>setTimeout(r,2500))]).then(start,start);
+/* ---------- 3D tilt cards ---------- */
+if(!RM&&matchMedia('(pointer:fine)').matches){document.querySelectorAll('[data-tilt]').forEach(el=>{
+el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-0.5,y=(e.clientY-r.top)/r.height-0.5;
+el.style.transform=`perspective(900px) rotateY(${x*10}deg) rotateX(${-y*10}deg) translateZ(6px)`});
+el.addEventListener('pointerleave',()=>{el.style.transform=''})})}
 })();
 </script>
-
-</body></html>
+</body>
+</html>
