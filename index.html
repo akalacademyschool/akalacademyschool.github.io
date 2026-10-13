@@ -388,8 +388,8 @@ tex.encoding=THREE.sRGBEncoding;
 const pimg=new Image();
 pimg.onload=()=>{try{const c=document.createElement('canvas');c.width=pimg.naturalWidth||820;c.height=pimg.naturalHeight||1093;c.getContext('2d').drawImage(pimg,0,0);tex.image=c;tex.needsUpdate=true;}catch(e){}};
 pimg.src=ph(4);
-const frame=new THREE.Mesh(new THREE.PlaneGeometry(3.5,4.55),new THREE.MeshStandardMaterial({color:0xc9a227,roughness:0.35,metalness:0.7}));
-const face=new THREE.Mesh(new THREE.PlaneGeometry(3.28,4.33),new THREE.MeshStandardMaterial({map:tex,roughness:0.85}));
+const frame=new THREE.Mesh(new THREE.PlaneGeometry(3.5,4.55),new THREE.MeshStandardMaterial({color:0xc9a227,roughness:0.35,metalness:0.7,side:THREE.DoubleSide}));
+const face=new THREE.Mesh(new THREE.PlaneGeometry(3.28,4.33),new THREE.MeshStandardMaterial({map:tex,roughness:0.85,side:THREE.DoubleSide}));
 face.position.z=0.02;pg3.add(frame);pg3.add(face);
 const ring=new THREE.Mesh(new THREE.TorusGeometry(2.75,0.055,20,120),new THREE.MeshStandardMaterial({color:0xc9a227,roughness:0.3,metalness:0.85}));
 ring.position.z=-0.15;pg3.add(ring);
@@ -412,7 +412,7 @@ addEventListener('pointermove',e=>{mx=(e.clientX/innerWidth-0.5);my=(e.clientY/i
 const clock=new THREE.Clock();
 function tick(){requestAnimationFrame(tick);const dt=Math.min(clock.getDelta(),0.05)||0.016,t=clock.getElapsedTime();
 if(!RM&&N){const a=pg.attributes.position.array;for(let i=0;i<N;i++){a[i*3+1]+=spd[i]*dt;if(a[i*3+1]>7.5)a[i*3+1]=-7.5}pg.attributes.position.needsUpdate=true}
-if(portrait){if(!drag&&!RM){ry+=0.0035;vy*=0.95;ry+=vy;vy*=0.9}else if(!RM){vy*=0.94;ry+=vy}
+if(portrait){if(!RM){if(!drag){ry+=((Math.sin(t*0.45)*0.55)-ry)*0.04;vy*=0.9}else{ry+=vy;vy*=0.94}}
 portrait.rotation.y+=(ry-portrait.rotation.y)*0.12;portrait.rotation.x+=(rx-portrait.rotation.x)*0.12;
 portrait.position.y+=( (canvas.clientWidth<900?2.6:0.1) + Math.sin(t*1.2)*0.12 - portrait.position.y)*0.06;
 const ds=portrait.userData.dots;for(let i=0;i<ds.length;i++){const an=t*0.5+i/ds.length*Math.PI*2;ds[i].position.set(Math.cos(an)*2.75,Math.sin(an)*2.75,-0.15)}
