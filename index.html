@@ -21,15 +21,15 @@ body{background:radial-gradient(120% 90% at 50% 20%,var(--bg2),var(--bg) 70%);ba
 .top .r{display:flex;gap:14px;align-items:center;pointer-events:auto}
 .timer{cursor:pointer;font-variant-numeric:tabular-nums;background:none;border:0;color:inherit;font:inherit;letter-spacing:inherit;text-transform:inherit;padding:0}
 .count{font-variant-numeric:tabular-nums;color:var(--fg);white-space:nowrap}
-.card{box-sizing:border-box;position:absolute;top:calc(50% + 44px);transform:translateY(-50%);width:min(32rem,44vw);max-height:calc(100% - 290px);overflow:auto;padding:28px 30px 26px;border:1px solid var(--line);border-radius:22px;background:var(--glass);backdrop-filter:blur(16px) saturate(1.3);-webkit-backdrop-filter:blur(16px) saturate(1.3);box-shadow:0 30px 80px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.07);pointer-events:auto;opacity:0;visibility:hidden;transition:opacity .5s,transform .7s cubic-bezier(.2,.9,.2,1),visibility 0s .5s}
+.card{box-sizing:border-box;position:absolute;top:calc(50% + 44px);transform:translateY(-50%);width:min(36rem,46vw);max-height:calc(100% - 260px);overflow:auto;padding:36px 40px 32px;border:1px solid var(--line);border-radius:22px;background:var(--glass);backdrop-filter:blur(16px) saturate(1.3);-webkit-backdrop-filter:blur(16px) saturate(1.3);box-shadow:0 30px 80px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.07);pointer-events:auto;opacity:0;visibility:hidden;transition:opacity .5s,transform .7s cubic-bezier(.2,.9,.2,1),visibility 0s .5s}
 .card.left{left:max(16px,3vw);transform:translate(-40px,-50%)}.card.right{right:max(16px,3vw);transform:translate(40px,-50%)}
 .card.on{opacity:1;visibility:visible;transform:translate(0,-50%);transition:opacity .6s .35s,transform .9s .35s cubic-bezier(.2,.9,.2,1),visibility 0s}
-.eyebrow{font-family:var(--f-mono);font-size:13.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:0 0 12px}
-.card h2{font-family:var(--f-display);font-weight:800;font-size:clamp(2.1rem,3.7vw,3.3rem);line-height:1.02;letter-spacing:-.02em;margin:0 0 14px;text-wrap:balance}
+.eyebrow{font-family:var(--f-mono);font-size:14.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:0 0 12px}
+.card h2{font-family:var(--f-display);font-weight:800;font-size:clamp(2.4rem,4.2vw,3.8rem);line-height:1.02;letter-spacing:-.02em;margin:0 0 16px;text-wrap:balance}
 .card h2 em{font-style:normal;color:var(--accent)}
-.card p{margin:0 0 14px;font-size:clamp(1.08rem,1.4vw,1.25rem);line-height:1.5;color:#d3e8da;max-width:34em}
-.card ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
-.card li{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:baseline;font-size:1.12rem;line-height:1.4;color:var(--fg)}
+.card p{margin:0 0 14px;font-size:clamp(1.15rem,1.55vw,1.35rem);line-height:1.5;color:#d3e8da;max-width:34em}
+.card ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.card li{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:baseline;font-size:1.18rem;line-height:1.45;color:var(--fg)}
 .card li b{font-family:var(--f-mono);font-weight:500;font-size:.9rem;color:var(--bg);background:var(--accent);border-radius:7px;padding:2px 8px;white-space:nowrap}
 .card a{color:var(--accent);word-break:break-all}
 .stats{display:flex;gap:18px;flex-wrap:wrap;margin-top:6px}.stat{min-width:0;flex:1 1 9rem}.stat strong{display:block;font-family:var(--f-display);font-weight:800;font-size:2.9rem;line-height:1;color:var(--accent);font-variant-numeric:tabular-nums}.stat span{font-size:1rem;color:var(--muted);line-height:1.35;display:block;margin-top:4px}
@@ -50,7 +50,7 @@ body{background:radial-gradient(120% 90% at 50% 20%,var(--bg2),var(--bg) 70%);ba
 .pangti .pm{font-size:clamp(.92rem,1.2vw,1.08rem);line-height:1.4;color:#d3e8da;margin-top:2px}
 .pangti .pa{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:5px}
 .pangti.hero{padding:14px 26px 14px}.pangti.hero .pg{font-size:clamp(1.7rem,3.5vw,2.8rem)}
-.photo{width:120px;height:120px;border-radius:50%;object-fit:cover;border:3px solid var(--accent);box-shadow:0 0 26px rgba(155,231,184,.55);display:block;margin:2px 0 14px}
+.photo{width:134px;height:134px;border-radius:50%;object-fit:cover;border:3px solid var(--accent);box-shadow:0 0 26px rgba(155,231,184,.55);display:block;margin:2px 0 14px}
 .pills{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}
 .pills span{font-size:.95rem;padding:6px 13px;border:1px solid var(--line);border-radius:999px;background:rgba(155,231,184,.08);color:var(--fg)}
 .pills b{width:100%;font-family:var(--f-mono);font-weight:500;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin:6px 0 -2px}
@@ -131,11 +131,14 @@ const rimA=new THREE.PointLight(0x9be7b8,.9,40);scene.add(rimA);const rimB=new T
 /* ---------- helpers ---------- */
 const mat=(c,r=.38,m=.08)=>new THREE.MeshStandardMaterial({color:c,roughness:r,metalness:m});
 function shadowize(o){o.traverse(m=>{if(m.isMesh){m.castShadow=true;m.receiveShadow=true}})}
-function canvasTex(text,w,h,bg,fg,size,font='Bricolage Grotesque'){const c=document.createElement('canvas');c.width=w;c.height=h;const x=c.getContext('2d');
-  if(bg){x.fillStyle=bg;x.fillRect(0,0,w,h)}x.fillStyle=fg;x.font=`800 ${size}px "${font}","Segoe UI",Arial,sans-serif`;x.textAlign='center';x.textBaseline='middle';
-  const lines=String(text).split('\n');lines.forEach((l,i)=>x.fillText(l,w/2,h/2+(i-(lines.length-1)/2)*size*1.08));
+function canvasTex(text,w,h,bg,fg,size,font='Bricolage Grotesque'){const c=document.createElement('canvas');const m=c.getContext('2d');
+  m.font=`800 ${size}px "${font}","Segoe UI",Arial,sans-serif`;m.textAlign='center';m.textBaseline='middle';
+  const lines=String(text).split('\n');let tw=w;lines.forEach(l=>{tw=Math.max(tw,m.measureText(l).width+size*.8)});
+  c.width=Math.ceil(tw);c.height=h;const x=c.getContext('2d');
+  if(bg){x.fillStyle=bg;x.fillRect(0,0,c.width,c.height)}x.fillStyle=fg;x.font=`800 ${size}px "${font}","Segoe UI",Arial,sans-serif`;x.textAlign='center';x.textBaseline='middle';
+  lines.forEach((l,i)=>x.fillText(l,c.width/2,h/2+(i-(lines.length-1)/2)*size*1.08));
   const t=new THREE.CanvasTexture(c);t.encoding=THREE.sRGBEncoding;t.anisotropy=8;return t}
-function sprite(text,w=3.6,h=.9,fg='#e9f6ee',size=84,bg=null){const t=canvasTex(text,512,Math.round(512*h/w),bg,fg,size);const s=new THREE.Sprite(new THREE.SpriteMaterial({map:t,transparent:true,depthWrite:false,fog:false}));s.scale.set(w,h,1);return s}
+function sprite(text,w=3.6,h=.9,fg='#e9f6ee',size=84,bg=null){const t=canvasTex(text,1024,Math.round(1024*h/w),bg,fg,size);const s=new THREE.Sprite(new THREE.SpriteMaterial({map:t,transparent:true,depthWrite:false,fog:false}));const asp=t.image.width/t.image.height,sw=Math.min(w,h*asp);s.scale.set(sw,sw/asp,1);return s}
 function roundedGeo(w,h,d,r=.14){const s=new THREE.Shape(),x=-w/2,y=-h/2;s.moveTo(x+r,y);s.lineTo(x+w-r,y);s.quadraticCurveTo(x+w,y,x+w,y+r);s.lineTo(x+w,y+h-r);s.quadraticCurveTo(x+w,y+h,x+w-r,y+h);s.lineTo(x+r,y+h);s.quadraticCurveTo(x,y+h,x,y+h-r);s.lineTo(x,y+r);s.quadraticCurveTo(x,y,x+r,y);
   const g=new THREE.ExtrudeGeometry(s,{depth:d,bevelEnabled:true,bevelThickness:.07,bevelSize:.07,bevelSegments:4,curveSegments:8});g.translate(0,0,-d/2);
   const uv=g.attributes.uv,p=g.attributes.position;for(let i=0;i<uv.count;i++)uv.setXY(i,(p.getX(i)+w/2)/w,(p.getY(i)+h/2)/h);return g}
@@ -160,37 +163,35 @@ function photoFrame(idx,w,h,cap,dbl){const g=new THREE.Group();const hov=[];
     if(dbl){const bk2=front.clone();bk2.rotation.y=Math.PI;bk2.position.z=-.1;bk2.userData.lb={src:url,cap};g.add(bk2);hov.push(bk2)}
     const sheen=new THREE.Mesh(new THREE.PlaneGeometry(w*.7,h*.7),new THREE.MeshBasicMaterial({color:0xffffff,transparent:true,opacity:.06,depthWrite:false}));
     sheen.position.set(-w*.2,h*.18,.11);sheen.rotation.z=-.45;g.add(sheen);
-    const sp=sprite(cap,Math.max(3.2,w+1),.5,'#c9a227',72);sp.position.y=-h/2-.6;g.add(sp)}
+    const sp=sprite(cap,3.4,.44,'#c9a227',60);sp.position.y=-h/2-.52;g.add(sp)}
   return{group:g,hov}}
 
 /* ---------- station builders ---------- */
 function buildHero(){const g=new THREE.Group();stage(g);
-  const fr=photoFrame(4,3.1,4.1,'Sandeep Kumar Chaurasiya',true);
-  const pg=new THREE.Group();pg.position.set(4.6,3.9,0);pg.add(fr.group);g.add(pg);
-  const ring=new THREE.Mesh(new THREE.TorusGeometry(2.95,.09,16,96),new THREE.MeshStandardMaterial({color:GOLD,roughness:.25,metalness:.7}));ring.position.set(4.6,3.9,0);g.add(ring);
+  const fr=photoFrame(4,3.5,4.6,'Sandeep Kumar Chaurasiya',true);
+  const pg=new THREE.Group();pg.position.set(3.9,3.9,0);pg.add(fr.group);g.add(pg);
+  const ring=new THREE.Mesh(new THREE.TorusGeometry(3.05,.09,16,96),new THREE.MeshStandardMaterial({color:GOLD,roughness:.25,metalness:.7}));ring.position.set(3.9,3.9,0);g.add(ring);
   const parts=[];for(let i=0;i<14;i++){const s=new THREE.Mesh(new THREE.SphereGeometry(.09,10,10),new THREE.MeshBasicMaterial({color:0xf2b84b}));g.add(s);parts.push({s,i})}
-  const cone=new THREE.Mesh(new THREE.ConeGeometry(2.7,6,32,1,true),new THREE.MeshBasicMaterial({color:0xf2b84b,transparent:true,opacity:.08,side:THREE.DoubleSide,depthWrite:false}));cone.position.set(4.6,6.6,0);g.add(cone);
-  const glow=new THREE.Mesh(new THREE.CircleGeometry(2.3,48),new THREE.MeshBasicMaterial({color:0xf2b84b,transparent:true,opacity:.12}));glow.rotation.x=-Math.PI/2;glow.position.set(4.6,.06,0);g.add(glow);
-  const ts=sprite('ADMIN EXECUTIVE · MA EDUCATION',6.6,.7,'#f2b84b',80);ts.position.set(4.6,7.7,0);g.add(ts);
+  const cone=new THREE.Mesh(new THREE.ConeGeometry(2.9,6.4,32,1,true),new THREE.MeshBasicMaterial({color:0xf2b84b,transparent:true,opacity:.08,side:THREE.DoubleSide,depthWrite:false}));cone.position.set(3.9,6.8,0);g.add(cone);
+  const glow=new THREE.Mesh(new THREE.CircleGeometry(2.5,48),new THREE.MeshBasicMaterial({color:0xf2b84b,transparent:true,opacity:.12}));glow.rotation.x=-Math.PI/2;glow.position.set(3.9,.06,0);g.add(glow);
   shadowize(g);
   return{group:g,hov:fr.hov,update(t,p){pg.rotation.y=dragRY+t*(RM?0:.22);pg.position.y=3.9+Math.sin(t*1.2)*(RM?0:.16);
     ring.rotation.z=t*(RM?0:.15);
-    parts.forEach(o=>{const a=o.i/14*Math.PI*2+t*(RM?0:.5);o.s.position.set(4.6+Math.cos(a)*2.95,3.9+Math.sin(a)*2.95,Math.sin(t*.8+o.i)*(RM?0:.3))});
+    parts.forEach(o=>{const a=o.i/14*Math.PI*2+t*(RM?0:.5);o.s.position.set(3.9+Math.cos(a)*3.05,3.9+Math.sin(a)*3.05,Math.sin(t*.8+o.i)*(RM?0:.3))});
     cone.material.opacity=.06+Math.sin(t*2)*(RM?0:.02);glow.material.opacity=.1+Math.sin(t*2.4)*(RM?0:.04)}}}
 function buildAbout(){const g=new THREE.Group();stage(g);
-  const a=photoFrame(0,3.4,4.4,'Akal Academy Baru Sahib');const A=a.group;A.position.set(-3.6,3.8,0);A.rotation.y=.18;g.add(A);
-  const b=photoFrame(6,2.2,3.0,'Admin Executive');const B=b.group;B.position.set(-7.8,3.1,-1.4);B.rotation.y=.32;g.add(B);
-  const ring=new THREE.Mesh(new THREE.TorusGeometry(4.6,.05,12,110),new THREE.MeshStandardMaterial({color:0x9be7b8,roughness:.25,metalness:.5}));ring.rotation.x=Math.PI/2;ring.position.set(-3.6,.08,0);g.add(ring);
+  const a=photoFrame(0,3.9,5.0,'Akal Academy Baru Sahib');const A=a.group;A.position.set(-3.4,3.9,0);A.rotation.y=.18;g.add(A);
+  const b=photoFrame(6,2.5,3.4,'Admin Executive');const B=b.group;B.position.set(-7.6,3.2,-1.4);B.rotation.y=.32;g.add(B);
+  const ring=new THREE.Mesh(new THREE.TorusGeometry(4.6,.05,12,110),new THREE.MeshStandardMaterial({color:0x9be7b8,roughness:.25,metalness:.5}));ring.rotation.x=Math.PI/2;ring.position.set(-3.4,.08,0);g.add(ring);
   shadowize(g);
   return{group:g,hov:a.hov.concat(b.hov),update(t,p){
-    A.position.y=3.8+Math.sin(t*1.2)*(RM?0:.16);A.rotation.y=.18+Math.sin(t*.5)*(RM?0:.08);
-    B.position.y=3.1+Math.sin(t*1.2+2)*(RM?0:.2);B.rotation.y=.32+Math.sin(t*.5+1)*(RM?0:.1);
+    A.position.y=3.9+Math.sin(t*1.2)*(RM?0:.16);A.rotation.y=.18+Math.sin(t*.5)*(RM?0:.08);
+    B.position.y=3.2+Math.sin(t*1.2+2)*(RM?0:.2);B.rotation.y=.32+Math.sin(t*.5+1)*(RM?0:.1);
     ring.rotation.z=t*(RM?0:.1)}}}
 function buildGallery(){const g=new THREE.Group();stage(g,7.6);
   const caps=['Akal Academy Baru Sahib','Admin Desk','In the Office','Daily Rounds'];
   const xs=[1.2,4.0,6.8,9.6],zs=[1.6,.4,.4,1.6],ys=[3.3,3.7,3.7,3.3];const frs=[];
-  for(let i=0;i<4;i++){const f=photoFrame(i,2.6,3.5,caps[i]);f.group.position.set(xs[i],ys[i],zs[i]);f.group.userData.y0=ys[i];g.add(f.group);frs.push({g:f.group,hov:f.hov,i})}
-  const ts=sprite('IN THE OFFICE',5.4,.75,'#f2b84b',96);ts.position.set(5.4,6.9,0);g.add(ts);
+  for(let i=0;i<4;i++){const f=photoFrame(i,2.9,3.8,caps[i]);f.group.position.set(xs[i],ys[i],zs[i]);f.group.userData.y0=ys[i];g.add(f.group);frs.push({g:f.group,hov:f.hov,i})}
   const spots=[];xs.forEach((x,i)=>{const s=new THREE.Mesh(new THREE.CircleGeometry(.9,32),new THREE.MeshBasicMaterial({color:0x9be7b8,transparent:true,opacity:.14}));s.rotation.x=-Math.PI/2;s.position.set(x,.06,zs[i]+.7);g.add(s);spots.push(s)});
   shadowize(g);
   const hov=[];frs.forEach(f=>hov.push(...f.hov));
@@ -198,12 +199,12 @@ function buildGallery(){const g=new THREE.Group();stage(g,7.6);
       f.g.rotation.y=(5.4-f.g.position.x)*.12+Math.sin(t*.5+f.i)*(RM?0:.07)});
     spots.forEach((s,i)=>s.material.opacity=.12+Math.sin(t*2+i)*(RM?0:.05))}}}
 function buildDeskPhoto(){const g=new THREE.Group();stage(g);
-  const f=photoFrame(1,3,4,'Admin Executive — At Work');f.group.position.set(-4.4,3.6,0);g.add(f.group);
+  const f=photoFrame(1,3.4,4.5,'Admin Executive — At Work');f.group.position.set(-4.2,3.6,0);g.add(f.group);
   const roles=['Instructional Design Intern','Teaching Assistant','HR Intern','Proctor — LPU','Campus Ambassador'];
-  const orb=[];roles.forEach((r,i)=>{const sp=sprite(r,3.7,.62,'#e9f6ee',72);g.add(sp);orb.push({sp,i})});
+  const orb=[];roles.forEach((r,i)=>{const sp=sprite(r,3.2,.55,'#e9f6ee',60);g.add(sp);orb.push({sp,i})});
   shadowize(g);
   return{group:g,hov:f.hov,update(t,p){const fg=f.group;fg.position.y=3.6+Math.sin(t*1.2)*(RM?0:.15);fg.rotation.y=Math.sin(t*.45)*(RM?0:.12);
-    orb.forEach(o=>{const a=o.i/5*Math.PI*2+t*(RM?0:.28);o.sp.position.set(-4.4+Math.cos(a)*3.7,3.6+Math.sin(a*1.3)*1.1+Math.sin(t+o.i)*(RM?0:.2),Math.sin(a)*2.2)})}}}
+    orb.forEach(o=>{const a=o.i/5*Math.PI*2+t*(RM?0:.28);o.sp.position.set(-4.2+Math.cos(a)*3.2,3.6+Math.sin(a*1.3)*1.1+Math.sin(t+o.i)*(RM?0:.2),Math.sin(a)*1.9)})}}}
 function buildBars(){const g=new THREE.Group();stage(g);const bars=[];const cs=[0x0f6b4a,0x1f8f5f,0x3fae74,0x7ac96b,0xf2b84b,0xee6a55];const hs=[2,3.4,2.6,4.4,3.2,5];
   hs.forEach((h,i)=>{const m=new THREE.Mesh(new THREE.BoxGeometry(1,1,1),mat(cs[i],.3,.1));const x=(i-2.5)*1.5;m.position.x=x;g.add(m);bars.push({m,h,i,x})});
   shadowize(g);
@@ -251,7 +252,7 @@ function buildNetwork(){const g=new THREE.Group();stage(g);const N=10,nodes=[],c
       n.c.position.copy(from).add(d.clone().multiplyScalar(.5));n.c.scale.set(1,len,1);n.c.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0),d.clone().normalize());
       const k=((t*(RM?0:.35)+n.i*.13)%1);n.pulse.position.copy(from).add(d.clone().multiplyScalar(k));n.pulse.scale.setScalar(.6+Math.sin(k*Math.PI)*.8)})}}}
 function buildContact(){const n=buildNetwork();const g=n.group;
-  const f=photoFrame(5,2.4,3.2,'Sandeep Kumar Chaurasiya');f.group.position.set(5.4,3.6,-1);f.group.rotation.y=-.25;g.add(f.group);
+  const f=photoFrame(5,2.9,3.8,'Sandeep Kumar Chaurasiya');f.group.position.set(4.4,3.6,-1);f.group.rotation.y=-.25;g.add(f.group);
   return{group:g,hov:n.hov.concat(f.hov),update(t,p){n.update(t,p);f.group.position.y=3.6+Math.sin(t*1.3)*(RM?0:.16);f.group.rotation.y=-.25+Math.sin(t*.5)*(RM?0:.08)}}}
 
 /* ---------- quotes, one per slide ---------- */
